@@ -1,6 +1,6 @@
 -- Handler to present data from the colony
 
-local debugging = require("..help_functions.debugging")
+local debugging = require(".help_functions.debugging")
 local Data = require("colony_data")
 -- local Peripheral = require("peripheral")
 
