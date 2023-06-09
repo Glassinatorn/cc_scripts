@@ -1,7 +1,3 @@
--- API to fetch and present colony data
---local Colony = require("colony")
-local debugging = require("debugging")
-
 local function verify_connection()
     if colony.isValid() then
         local id = colony.getInfo().id
