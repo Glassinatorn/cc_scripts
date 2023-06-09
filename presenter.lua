@@ -1,12 +1,12 @@
 -- Handler to present data from the colony
 
 -- importing local libraries
-local original_path = package.path -- saving original path
-package.path = original_path .. ";..help_functions/?.lua" -- adding path to help functions
+-- local original_path = package.path -- saving original path
+-- package.path = original_path .. ";..help_functions/?.lua" -- adding path to help functions
 
-local debugging = require("debugging")
+local debugging = require("help_functions.debugging")
 
-package.path = original_path -- resetting original path
+-- package.path = original_path -- resetting original path
 
 local Data = require("colony_data")
 -- local Peripheral = require("peripheral")
