@@ -2,7 +2,7 @@
 
 -- importing local libraries
 local original_path = package.path -- saving original path
-package.path = original_path .. ";..help_functions/?.lua" -- adding path to help functions
+package.path = original_path .. ";.help_functions/?.lua" -- adding path to help functions
 
 local debugging = require(".help_functions.debugging") -- importing local debugging functions
 
