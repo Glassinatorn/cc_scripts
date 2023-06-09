@@ -40,6 +40,8 @@ end
 
 local function print_to_monitor(monitor, to_print)
     local prev_output = term.redirect(monitor)
+    monitor.clear()
+    sleep(1)
     for i=1,#to_print do
         monitor.setCursorPos(1,i)
         print(to_print[i])
