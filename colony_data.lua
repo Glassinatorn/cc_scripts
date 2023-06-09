@@ -25,7 +25,7 @@ local function general_data()
                 return "Work in the colony is not paused due to any recent death...get on it."
             end
         end,
-        population = "Population: " .. meta_data.citizens,
+        population = meta_data.citizens,
     }
 
     return to_present
