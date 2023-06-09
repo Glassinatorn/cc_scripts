@@ -20,7 +20,7 @@ local function format_data()
         "Happiness: " .. tostring(data["happiness"]),
         "Recent death: " .. mourning,
         "Being attacked: " .. attacked,
-        "Citizens: " .. tostring(data["citizens"]) .. "/" .. tostring(data["maxCitizens"])
+        "Citizens: " .. tostring(data["population"])
     }
 end
 
