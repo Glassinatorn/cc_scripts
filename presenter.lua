@@ -3,6 +3,7 @@
 local debugging = require("help_functions.debugging")
 local chatgpt = require("help_functions.chatgpt")
 local Data = require("monitor_scripts.colony_data")
+local files = require("help_functions.files")
 
 local function format_data()
     local data = Data.general_data()
@@ -58,7 +59,22 @@ local function present_data(text)
     end
 end
 
-local news = chatgpt.gatherResponse("The colony is doing well. The citizens are happy. The colony is not being attacked. Use that to make a story", )
 
+
+---------------------
 -- running the code
-present_data(format_data())
+---------------------
+--
+local gathered_colony_data = format_data()
+present_data(gathered_colony_data)
+
+
+local api_key = files.read_api_key(".chatgpt.key")
+if api_key == nil then
+    print("No api key found")
+    return nil
+end
+
+local news = chatgpt.gatherResponse("The colony is doing well. The citizens are happy. The colony is not being attacked. Use that to make a story", api_key)
+
+present_data(news)
