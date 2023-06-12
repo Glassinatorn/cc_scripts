@@ -39,3 +39,8 @@ luac.out
 *.x86_64
 *.hex
 
+# Secret files
+*.key
+*.pem
+*.pub
+*.secret
