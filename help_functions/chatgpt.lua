@@ -1,3 +1,10 @@
+local function get_page(url)
+    local response = http.get(url)
+    local page = response.readAll()
+    response.close()
+    return page
+end
+    
 function gatherResponse(prompt, api_key)
     -- prepare the request
     local url = "https://api.openai.com/v1/completions"
@@ -34,4 +41,4 @@ function gatherResponse(prompt, api_key)
     end
 end
 
-return { gatherResponse = gatherResponse }
+return { gatherResponse = gatherResponse, get_page = get_page }
