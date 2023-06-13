@@ -68,7 +68,7 @@ local gathered_colony_data = format_data()
 present_data(gathered_colony_data)
 
 
-local api_key = require("chatgpt.key")
+local api_keys = require("keys.lua")
 if api_key == nil then
     print("No api key found")
     return nil
