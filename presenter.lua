@@ -69,11 +69,11 @@ present_data(gathered_colony_data)
 
 
 local api_keys = require("keys.lua")
-if api_key == nil then
+if api_keys == nil then
     print("No api key found")
     return nil
 end
 
-local news = chatgpt.gatherResponse("The colony is doing well. The citizens are happy. The colony is not being attacked. Use that to make a story", api_key)
+local news = chatgpt.gatherResponse("The colony is doing well. The citizens are happy. The colony is not being attacked. Use that to make a story", api_keys["openai_api"])
 
 present_data(news)
