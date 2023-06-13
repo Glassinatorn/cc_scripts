@@ -86,4 +86,8 @@ present_data(test_fetch)
     '{"input": "hi there, how are you todya"}',
     { ["Content-Type"] = "application/json", ["Authorization"] = "Bearer " .. api_keys["openai_api"] })
 
-    print(test)
+    if test then
+        print("test is: " .. test.readAll())
+    else
+        print(test)
+    end
