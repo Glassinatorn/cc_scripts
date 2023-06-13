@@ -77,7 +77,7 @@ end
 -- local news = chatgpt.gatherResponse("The colony is doing well. The citizens are happy. The colony is not being attacked. Use that to make a story", api_keys["openai_api"])
 local test_fetch = chatgpt.get_page("https://www.openai.com")
 
-write(test_fetch)
+print(test_fetch)
 present_data(test_fetch)
 
 --present_data(news)
