@@ -3,7 +3,6 @@
 local debugging = require("help_functions.debugging")
 local chatgpt = require("help_functions.chatgpt")
 local Data = require("monitor_scripts.colony_data")
-local files = require("help_functions.files")
 
 local function format_data()
     local data = Data.general_data()
@@ -69,7 +68,7 @@ local gathered_colony_data = format_data()
 present_data(gathered_colony_data)
 
 
-local api_key = files.read_api_key("chatgpt.key")
+local api_key = require("chatgpt.key")
 if api_key == nil then
     print("No api key found")
     return nil
