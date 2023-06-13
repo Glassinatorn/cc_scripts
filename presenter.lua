@@ -67,7 +67,7 @@ end
 local gathered_colony_data = format_data()
 present_data(gathered_colony_data)
 
-sleep(5) -- make sure the monitor is not spammed
+sleep(5) -- wait for the monitor to be connected
 
 local api_keys = require("keys")
 if api_keys == nil then
@@ -76,8 +76,9 @@ if api_keys == nil then
 end
 
 -- local news = chatgpt.gatherResponse("The colony is doing well. The citizens are happy. The colony is not being attacked. Use that to make a story", api_keys["openai_api"])
-local test_fetch = chatgpt.get_page("https://www.svd.se")
+local test_fetch = chatgpt.get_page("https://api.openai.com/v1/completions")
 
+print(test_fetch)
 present_data(test_fetch)
 
 --present_data(news)
