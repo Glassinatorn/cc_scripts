@@ -9,13 +9,20 @@ function gatherResponse(prompt, api_key)
     }
 
     local response = http.post(url, request, headers)
-    local responseBody = response.readAll()
     response.close()
 
-    local parsedResponse = http.jsonParse(responseBody)
-    local generatedText = parsedResponse.choices[1].text
+    if response.getResponseCode() ~= 200 then
+        error("Failed to make request to OpenAI API")
 
-    return generatedText
+        return nil
+    else
+        local responseBody = response.readAll()
+        local parsedResponse = http.jsonParse(responseBody)
+        local generatedText = parsedResponse.choices[1].text
+
+        return generatedText
+    end
+
 
   -- -- Encode the prompt for HTTP request
   -- local encodedPrompt = http.encodeURIComponent(prompt)
