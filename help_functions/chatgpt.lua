@@ -8,7 +8,7 @@ function gatherResponse(prompt, api_key)
         ["Authorization"] = "Bearer " .. api_key
     }
 
-    local response = http.request(url, headers, request)
+    local response = http.post(url, request, headers)
     local responseBody = response.readAll()
     response.close()
 
