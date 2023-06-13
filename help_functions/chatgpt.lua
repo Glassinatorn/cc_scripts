@@ -1,5 +1,3 @@
-local http = require("http")
-
 function gatherResponse(prompt, api_key)
   -- Encode the prompt for HTTP request
   local encodedPrompt = http.encodeURIComponent(prompt)
