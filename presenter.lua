@@ -74,20 +74,12 @@ if api_keys == nil then
     return nil
 end
 
--- local news = chatgpt.gatherResponse("The colony is doing well. The citizens are happy. The colony is not being attacked. Use that to make a story", api_keys["openai_api"])
-local test_fetch = chatgpt.get_page("https://www.openai.com")
+local test = http.post("https://api.openai.com/v1/moderations",
+'{"input": "hi there, how are you todya"}',
+{ ["Content-Type"] = "application/json", ["Authorization"] = "Bearer " .. api_keys["openai_api"] })
 
-print(test_fetch)
-present_data(test_fetch)
-
---present_data(news)
-
-    local test = http.post("https://api.openai.com/v1/moderations",
-    '{"input": "hi there, how are you todya"}',
-    { ["Content-Type"] = "application/json", ["Authorization"] = "Bearer " .. api_keys["openai_api"] })
-
-    if test then
-        print("test is: " .. test.readAll())
-    else
-        print(test)
-    end
+if test then
+    print("test is: " .. test.readAll())
+else
+    print(test)
+end
