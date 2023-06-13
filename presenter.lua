@@ -83,7 +83,7 @@ present_data(test_fetch)
 --present_data(news)
 
     local test = http.post("https://api.openai.com/v1/moderations",
-    '{"input": "' .. input .. '"}',
+    '{"input": "hi there, how are you todya"}',
     { ["Content-Type"] = "application/json", ["Authorization"] = "Bearer " .. api_keys["openai_api"] })
 
     print(test)
