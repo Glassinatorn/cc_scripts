@@ -68,7 +68,7 @@ local gathered_colony_data = format_data()
 present_data(gathered_colony_data)
 
 
-local api_keys = require("keys.lua")
+local api_keys = require("keys")
 if api_keys == nil then
     print("No api key found")
     return nil
