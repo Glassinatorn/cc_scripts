@@ -1,7 +1,16 @@
 function gatherResponse(prompt, api_key)
     -- prepare the request
-    local url = "https://api.openai.com/v1/moderations"
-    local request = '{"input" : "' .. prompt .. '"}'
+    local url = "https://api.openai.com/v1/completions"
+    local request = '{' ..
+        '"model": "text-davinci-003",' ..
+        '"prompt" : "' .. prompt .. '",' ..
+        '"temperature": 0.9,' ..
+        '"max_tokens": 150,' ..
+        '"top_p": 1,' ..
+        '"frequency_penalty": 0.0,' ..
+        '"presence_penalty": 0.6,' ..
+        '"stop": [" Human:", " AI:"]' ..
+    '}'
 
     local headers = {
         ["Content-Type"] = "application/json",
