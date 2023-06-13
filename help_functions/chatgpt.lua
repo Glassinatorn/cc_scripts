@@ -10,7 +10,7 @@ function gatherResponse(prompt, api_key)
 
     local response = http.post(url, request, headers)
 
-    if response.getResponseCode() ~= 200 then
+    if response ~= nil then
         error("Failed to make request to OpenAI API")
 
         return nil
