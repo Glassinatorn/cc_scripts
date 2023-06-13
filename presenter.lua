@@ -74,7 +74,7 @@ if api_keys == nil then
     return nil
 end
 
-local news = chatgpt.gatherResponse("The colony is doing well. The citizens are happy. The colony is not being attacked. Use that to make a story", api_keys["openai_api"])
+-- local news = chatgpt.gatherResponse("The colony is doing well. The citizens are happy. The colony is not being attacked. Use that to make a story", api_keys["openai_api"])
 local test_fetch = chatgpt.get_page("https://www.svd.se")
 
 debugging.print_table(test_fetch)
