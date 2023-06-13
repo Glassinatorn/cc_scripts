@@ -1,8 +1,9 @@
 local function get_page(url)
-    local response = http.get(url)
-    local page = response.readAll()
-    response.close()
-    return page
+    local example = http.get(url)
+    local content = example.readAll()
+    example.close()
+
+    return content
 end
     
 function gatherResponse(prompt, api_key)
