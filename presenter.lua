@@ -84,7 +84,8 @@ if api_keys == nil then
     return nil
 end
 
+print("api keys: " .. api_keys["chatgpt"])
 prompt = "The colony is doing well. The citizens are happy and the population is panicing, write this as a story"
-local story = chatgpt(prompt, api_keys["chatgpt"])
+local story = chatgpt(api_keys["chatgpt"], prompt)
 
 present_data(story)
