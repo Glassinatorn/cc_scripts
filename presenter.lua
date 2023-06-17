@@ -4,6 +4,16 @@ local debugging = require("help_functions.debugging")
 local chatgpt = require("help_functions.chatgpt")
 local Data = require("monitor_scripts.colony_data")
 
+local function chatgpt(prompt, api_key)
+    -- just a function that runs the local python script to poke chatgpt
+    local command = "python3 help_functions/chatgpt.py " .. api_key .. " " .. prompt
+    local handle = io.popen(command)
+    local result = handle:read("*a")
+    handle:close()
+
+    return result
+end
+
 local function format_data()
     local data = Data.general_data()
     local mourning = "no"
