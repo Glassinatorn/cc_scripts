@@ -84,12 +84,7 @@ if api_keys == nil then
     return nil
 end
 
-local test = http.post("https://api.openai.com/v1/moderations",
-'{"input": "hi there, how are you todya"}',
-{ ["Content-Type"] = "application/json", ["Authorization"] = "Bearer " .. api_keys["openai_api"] })
+prompt = "The colony is doing well. The citizens are happy and the population is panicing, write this as a story"
+local story = chatgpt(prompt, api_keys["chatgpt"])
 
-if test then
-    print("test is: " .. test.readAll())
-else
-    print(test)
-end
+present_data(story)
