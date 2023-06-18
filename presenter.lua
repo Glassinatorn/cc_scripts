@@ -5,11 +5,19 @@ local chatgpt = require("help_functions.chatgpt")
 local Data = require("monitor_scripts.colony_data")
 
 local function chatgpt(prompt, api_key)
-    -- just a function that runs the local python script to poke chatgpt
-    local command = "python3 help_functions/chatgpt.py " .. api_key .. " " .. prompt
-    local handle = io.popen("echo hello")
-    local result = handle:read("*a")
-    handle:close()
+    -- enables requests to chatgpt by writing prompt to a file and then running 
+    -- a python script that reads the file and sends a request to the chatgpt 
+    -- api and then returns the result to a file that this function then reads
+    -- and returns the result
+
+    -- writing prompt to file 
+    local file = io.open("prompt.txt", "w")
+    file:write(prompt)
+    file:close()
+
+    while io.open("reply.txt", "r") do
+        
+    end
 
     return result
 end
