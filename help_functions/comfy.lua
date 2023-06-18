@@ -22,5 +22,5 @@ end
 return {
     get_number = get_number,
     get_text = get_text,
-    until_file_excists = until_file_exists
+    until_file_exists = until_file_exists
 }
