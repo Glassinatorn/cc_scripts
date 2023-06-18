@@ -7,7 +7,7 @@ local Data = require("monitor_scripts.colony_data")
 local function chatgpt(prompt, api_key)
     -- just a function that runs the local python script to poke chatgpt
     local command = "python3 help_functions/chatgpt.py " .. api_key .. " " .. prompt
-    local handle = io.popen(command)
+    local handle = io.popen("echo hello")
     local result = handle:read("*a")
     handle:close()
 
