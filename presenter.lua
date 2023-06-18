@@ -85,7 +85,7 @@ if api_keys == nil then
 end
 
 -- checking what the table contains
-debugging.dump_table(api_keys)
+print(debugging.dump_table(api_keys))
 
 print("api keys: " .. api_keys["openai_key"])
 prompt = "The colony is doing well. The citizens are happy and the population is panicing, write this as a story"
