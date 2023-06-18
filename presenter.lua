@@ -13,7 +13,9 @@ local function chatgpt(prompt)
 
     -- writing prompt to file 
     local file = io.open("help_functions/prompt.txt", "w")
+    print("writing prompt to file")
     file:write(prompt)
+    print("closing file...")
     file:close()
 
     -- waiting for the file to be written by the python script
@@ -21,7 +23,9 @@ local function chatgpt(prompt)
 
     -- reading the result from the file 
     local file = io.open("help_functions/reply.txt", "r")
+    print("reading result from file")
     local result = file:read("*a")
+    print("closing file...")
     file:close()
 
     return result
