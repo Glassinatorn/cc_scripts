@@ -2,6 +2,7 @@
 
 local debugging = require("help_functions.debugging")
 local chatgpt = require("help_functions.chatgpt")
+local comfy = require("help_functions.comfy")
 local Data = require("monitor_scripts.colony_data")
 
 local function chatgpt(prompt, api_key)
@@ -15,9 +16,13 @@ local function chatgpt(prompt, api_key)
     file:write(prompt)
     file:close()
 
-    while io.open("reply.txt", "r") do
-        
-    end
+    -- waiting for the file to be written by the python script
+    comfy.until_file_exists("result.txt")
+
+    -- reading the result from the file 
+    local file = io.open("result.txt", "r")
+    local result = file:read("*a")
+    file:close()
 
     return result
 end
