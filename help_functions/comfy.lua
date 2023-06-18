@@ -12,7 +12,7 @@ local function get_text(prompt)
     return input
 end
 
-local function until_file_excists(filename)
+local function until_file_exists(filename)
     while not fs.exists(filename) do
         os.sleep(1)
     end
@@ -22,5 +22,5 @@ end
 return {
     get_number = get_number,
     get_text = get_text,
-    until_file_excists = until_file_excists
+    until_file_excists = until_file_exists
 }
