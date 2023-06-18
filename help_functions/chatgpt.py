@@ -11,8 +11,7 @@ def check_file():
 
         return prompt
     except:
-        print("openai_key.txt not found. Please create one and put your OpenAI API key inside.")
-        exit()
+        return ""
 
 def chatgpt_response(prompt, api_key):
     openai.api_key = api_key

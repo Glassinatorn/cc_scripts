@@ -5,7 +5,7 @@ local chatgpt = require("help_functions.chatgpt")
 local comfy = require("help_functions.comfy")
 local Data = require("monitor_scripts.colony_data")
 
-local function chatgpt(prompt, api_key)
+local function chatgpt(prompt)
     -- enables requests to chatgpt by writing prompt to a file and then running 
     -- a python script that reads the file and sends a request to the chatgpt 
     -- api and then returns the result to a file that this function then reads
@@ -91,17 +91,7 @@ local gathered_colony_data = format_data()
 present_data(gathered_colony_data)
 
 
-local api_keys = require("keys")
-if api_keys == nil then
-    print("No api key found")
-    return nil
-end
-
--- checking what the table contains
-print(debugging.dump_table(api_keys))
-
-print("api keys: " .. api_keys["openai_api"])
-prompt = "The colony is doing well. The citizens are happy and the population is panicing, write this as a story"
-local story = chatgpt(api_keys["openai_api"], prompt)
+local prompt = "The colony is doing well. The citizens are happy and the population is panicing, write this as a story"
+local story = chatgpt(prompt)
 
 present_data(story)
