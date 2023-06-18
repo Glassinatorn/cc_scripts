@@ -86,7 +86,6 @@ end
 ---------------------
 -- running the code
 ---------------------
---
 local gathered_colony_data = format_data()
 present_data(gathered_colony_data)
 

@@ -7,6 +7,7 @@ def check_file():
     try:
         f = open("prompt.txt", "r")
         prompt = f.read()
+        print(f'removing prompt.txt')
         os.remove("prompt.txt")
 
         return prompt
@@ -27,6 +28,7 @@ def chatgpt_response(prompt, api_key):
 
 def save_to_file(reply):
     f = open("reply.txt", "w")
+    print(f'writing reply.txt')
     f.write(reply)
     f.close()
 
