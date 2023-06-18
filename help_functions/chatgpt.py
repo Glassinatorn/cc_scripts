@@ -34,6 +34,7 @@ def save_to_file(reply):
 
 if __name__ == "__main__":
     prompt = ""
+    api_key = open("openai.key", "r").read()
 
     while True:
         while prompt == "":

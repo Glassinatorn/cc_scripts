@@ -12,15 +12,15 @@ local function chatgpt(prompt, api_key)
     -- and returns the result
 
     -- writing prompt to file 
-    local file = io.open("prompt.txt", "w")
+    local file = io.open("help_functions/prompt.txt", "w")
     file:write(prompt)
     file:close()
 
     -- waiting for the file to be written by the python script
-    comfy.until_file_exists("result.txt")
+    comfy.until_file_exists("help_functions/reply.txt")
 
     -- reading the result from the file 
-    local file = io.open("result.txt", "r")
+    local file = io.open("help_functions/reply.txt", "r")
     local result = file:read("*a")
     file:close()
 
