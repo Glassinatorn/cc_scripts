@@ -87,8 +87,8 @@ end
 -- checking what the table contains
 print(debugging.dump_table(api_keys))
 
-print("api keys: " .. api_keys["openai_key"])
+print("api keys: " .. api_keys["openai_api"])
 prompt = "The colony is doing well. The citizens are happy and the population is panicing, write this as a story"
-local story = chatgpt(api_keys["openai_key"], prompt)
+local story = chatgpt(api_keys["openai_api"], prompt)
 
 present_data(story)
