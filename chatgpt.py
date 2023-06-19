@@ -25,6 +25,7 @@ def save_to_file(reply):
 if __name__ == "__main__":
     prompt = sys.argv[1:]
     api_key = open("openai.key", "r").read()
+    api_key = api_key.replace('\n', '')
     print(f'api key: {api_key}')
 
     reply = chatgpt_response(prompt, api_key)
