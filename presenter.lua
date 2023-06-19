@@ -12,13 +12,13 @@ local function chatgpt(prompt)
     -- and returns the result
 
     -- running python script
-    shell.run("python3 help_functions/chatgpt.py", prompt)
+    shell.run("python3 chatgpt.py", prompt)
 
     -- waiting for the file to be written by the python script
-    comfy.until_file_exists("help_functions/reply.txt")
+    comfy.until_file_exists("reply.txt")
 
     -- reading the result from the file 
-    local file = io.open("help_functions/reply.txt", "r")
+    local file = io.open("reply.txt", "r")
     print("reading result from file")
     local result = file:read("*a")
     print("closing file...")
