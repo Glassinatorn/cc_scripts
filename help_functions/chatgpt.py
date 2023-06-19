@@ -3,17 +3,6 @@ import sys
 import os
 import time
 
-def check_file():
-    try:
-        f = open("prompt.txt", "r")
-        prompt = f.read()
-        print(f'removing prompt.txt')
-        os.remove("prompt.txt")
-
-        return prompt
-    except:
-        return ""
-
 def chatgpt_response(prompt, api_key):
     openai.api_key = api_key
     messages = [ {"role": "system", "content": prompt} ]
@@ -34,15 +23,9 @@ def save_to_file(reply):
 
 
 if __name__ == "__main__":
-    prompt = ""
+    prompt = sys.argv[1:]
     api_key = open("openai.key", "r").read()
 
-    while True:
-        while prompt == "":
-            prompt = check_file()
-            time.sleep(1)
+    reply = chatgpt_response(prompt, api_key)
 
-        api_key = sys.argv[1]
-        reply = chatgpt_response(prompt, api_key)
-
-        save_to_file(reply)
+    save_to_file(reply)

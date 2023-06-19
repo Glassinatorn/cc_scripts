@@ -11,12 +11,8 @@ local function chatgpt(prompt)
     -- api and then returns the result to a file that this function then reads
     -- and returns the result
 
-    -- writing prompt to file 
-    local file = io.open("help_functions/prompt.txt", "w")
-    print("writing prompt to file")
-    file:write(prompt)
-    print("closing file...")
-    file:close()
+    -- running python script
+    shell.run("python3 help_functions/chatgpt.py \"" .. prompt .. "\"")
 
     -- waiting for the file to be written by the python script
     comfy.until_file_exists("help_functions/reply.txt")
