@@ -5,7 +5,7 @@ import time
 
 def chatgpt_response(prompt, api_key):
     openai.api_key = api_key
-    messages = [ {"role": "system", "content": prompt} ]
+    messages = [ {"role": "system", "content": "this is a test"} ]
 
     chat = openai.ChatCompletion.create( 
         model = "gpt-3.5-turbo", messages = messages
@@ -26,7 +26,7 @@ if __name__ == "__main__":
     prompt = sys.argv[1:]
     api_key = open("openai.key", "r").read()
     api_key = api_key.replace('\n', '')
-    print(f'api key: {api_key}')
+    print(f'prompt: {prompt}')
 
     reply = chatgpt_response(prompt, api_key)
 
