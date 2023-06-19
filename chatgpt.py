@@ -5,7 +5,7 @@ import time
 
 def chatgpt_response(prompt, api_key):
     openai.api_key = api_key
-    messages = [ {"role": "system", "content": "this is a test"} ]
+    messages = [ {"role": "system", "content": prompt} ]
 
     chat = openai.ChatCompletion.create( 
         model = "gpt-3.5-turbo", messages = messages
