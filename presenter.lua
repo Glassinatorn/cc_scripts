@@ -12,6 +12,7 @@ local function chatgpt(prompt)
     -- and returns the result
 
     -- running python script
+    print("running python script")
     shell.run("python3 chatgpt.py", prompt)
 
     -- waiting for the file to be written by the python script
