@@ -93,10 +93,10 @@ local function test(prompt, api_key)
             exit()
         end
         -- Add the user's message to the conversation messages array
-        table.insert(messages, {
+        messages = {{
             role = "user",
             content = prompt
-        })
+        }}
 
         -- Prepare the payload JSON to send to the API
         local payloadJson = textutils.serializeJSON({
@@ -110,38 +110,36 @@ local function test(prompt, api_key)
         http.request(endpoint, payloadJson, headers)
 
         -- Wait for the HTTP response event
-        while requesting do
-            local event, url, sourceText = os.pullEvent()
+        local event, url, sourceText = os.pullEvent()
 
-            -- Handle successful HTTP response
-            if event == "http_success" then
-                local responseBody = sourceText.readAll()
-                sourceText.close()
-                local responseJson = textutils.unserializeJSON(responseBody)
+        -- Handle successful HTTP response
+        if event == "http_success" then
+            local responseBody = sourceText.readAll()
+            sourceText.close()
+            local responseJson = textutils.unserializeJSON(responseBody)
 
-                -- Check if a valid response was received
-                if responseJson and responseJson.choices and responseJson.choices[1] then
-                    local generatedText = responseJson.choices[1].message.content
+            -- Check if a valid response was received
+            if responseJson and responseJson.choices and responseJson.choices[1] then
+                local generatedText = responseJson.choices[1].message.content
 
-                    -- Add the model's generated response to the conversation messages array
-                    table.insert(messages, {
-                        role = "system",
-                        content = generatedText
-                    })
+                -- Add the model's generated response to the conversation messages array
+                table.insert(messages, {
+                    role = "system",
+                    content = generatedText
+                })
 
-                    -- Print the generated response from the model
-                    print("[GPT]: ")
-                    print(generatedText)
-                else
-                    print("Error: Failed to get a valid response.")
-                end
-                requesting = false
-
-                -- Handle failed HTTP response
-            elseif event == "http_failure" then
-                print("Server didn't respond.")
-                requesting = false
+                -- Print the generated response from the model
+                print("[GPT]: ")
+                print(generatedText)
+            else
+                print("Error: Failed to get a valid response.")
             end
+            requesting = false
+
+            -- Handle failed HTTP response
+        elseif event == "http_failure" then
+            print("Server didn't respond.")
+            requesting = false
         end
     end
 end
