@@ -66,31 +66,20 @@ function gatherResponse(prompt, api_key)
 end
 
 local function test(prompt, api_key)
-    -- API endpoint for chat completions
     local endpoint = "https://api.openai.com/v1/chat/completions"
-
-    -- Maximum number of tokens in the generated response
     local maxTokens = 100
-
-    -- Pre-trained model to use for generating responses
     local model = "gpt-3.5-turbo"
 
-    -- Headers for the HTTP request
     local headers = {
         ["Authorization"] = "Bearer " .. api_key,
         ["Content-Type"] = "application/json"
     }
 
-    -- Array to store the conversation messages
-    local messages = {}
-
-    -- Start an infinite loop for user input and model responses
     messages = {{
         role = "user",
         content = prompt
     }}
 
-    -- Prepare the payload JSON to send to the API
     local payloadJson = textutils.serializeJSON({
         ["model"] = model,
         ["max_tokens"] = maxTokens,
@@ -113,17 +102,10 @@ local function test(prompt, api_key)
 
             -- Check if a valid response was received
             if responseJson and responseJson.choices and responseJson.choices[1] then
-                local generatedText = responseJson.choices[1].message.content
-
-                -- Add the model's generated response to the conversation messages array
-                table.insert(messages, {
-                    role = "system",
-                    content = generatedText
-                })
+                local reply = responseJson.choices[1].message.content
 
                 -- Print the generated response from the model
-                print("[GPT]: ")
-                print(generatedText)
+                return reply
             else
                 print("Error: Failed to get a valid response.")
             end
