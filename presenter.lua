@@ -70,12 +70,8 @@ local function print_to_monitor(monitor, to_print)
     -- catching errors
     if to_print == nil then
         to_print = { "No data to display" }
-    else
-        if #to_print > monitor.getSize() then
-            to_print = { "Too much data to display on monitor" }
-        elseif #to_print == 0 then
-            to_print = { "No data to display" }
-        end
+    elseif #to_print == 0 then
+        to_print = { "No data to display" }
     end
 
     for i=1,#to_print do
