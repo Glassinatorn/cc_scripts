@@ -1,5 +1,4 @@
-local function get_page(url)
-    local example = http.get(url)
+local function get_page(url) local example = http.get(url)
     local content = example.readAll()
     example.close()
 

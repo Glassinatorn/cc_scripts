@@ -1,7 +1,7 @@
 -- Handler to present data from the colony
 
 local debugging = require("help_functions.debugging")
-local chatgpt = require("help_functions.chatgpt")
+local help_chatgpt = require("help_functions.chatgpt")
 local comfy = require("help_functions.comfy")
 local Data = require("monitor_scripts.colony_data")
 
@@ -89,9 +89,10 @@ end
 ---------------------
 local gathered_colony_data = format_data()
 present_data(gathered_colony_data)
+local api_key = require("keys")
 
 
 local prompt = "The colony is doing well. The citizens are happy and the population is panicing, write this as a story"
-local story = chatgpt(prompt)
+local story = help_chatgpt.gatherResponse(prompt, api_key["openai_key"])
 
 present_data(story)
