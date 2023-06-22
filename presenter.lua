@@ -76,7 +76,7 @@ local function print_to_monitor(monitor, to_print)
         elseif #to_print == 0 then
             to_print = { "No data to display" }
         end
-    else
+    end
 
     for i=1,#to_print do
         monitor.setCursorPos(1,i)
