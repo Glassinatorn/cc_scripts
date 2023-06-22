@@ -85,31 +85,24 @@ local function test(prompt, api_key)
     local messages = {}
 
     -- Start an infinite loop for user input and model responses
-    while true do
-        print("[Me]: ")
-        local prompt = io.read()
+    messages = {{
+        role = "user",
+        content = prompt
+    }}
 
-        if prompt == "exit" then
-            exit()
-        end
-        -- Add the user's message to the conversation messages array
-        messages = {{
-            role = "user",
-            content = prompt
-        }}
+    -- Prepare the payload JSON to send to the API
+    local payloadJson = textutils.serializeJSON({
+        ["model"] = model,
+        ["max_tokens"] = maxTokens,
+        ["messages"] = messages
+    })
 
-        -- Prepare the payload JSON to send to the API
-        local payloadJson = textutils.serializeJSON({
-            ["model"] = model,
-            ["max_tokens"] = maxTokens,
-            ["messages"] = messages
-        })
+    -- Send the HTTP request to the OpenAI API
+    local requesting = true
+    http.request(endpoint, payloadJson, headers)
 
-        -- Send the HTTP request to the OpenAI API
-        local requesting = true
-        http.request(endpoint, payloadJson, headers)
-
-        -- Wait for the HTTP response event
+    -- Wait for the HTTP response event
+    while requesting do
         local event, url, sourceText = os.pullEvent()
 
         -- Handle successful HTTP response
