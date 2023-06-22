@@ -130,7 +130,7 @@ local function test(prompt, api_key)
                     })
 
                     -- Print the generated response from the model
-                    print_with_color("[GPT]: ", colors.lime)
+                    print("[GPT]: ")
                     print(generatedText)
                 else
                     print("Error: Failed to get a valid response.")
