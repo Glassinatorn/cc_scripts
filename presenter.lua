@@ -67,11 +67,16 @@ local function print_to_monitor(monitor, to_print)
     monitor.clear()
     sleep(1)
 
-    if #to_print > monitor.getSize() then
-        to_print = { "Too much data to display on monitor" }
-    elseif #to_print == 0 then
+    -- catching errors
+    if to_print == nil then
         to_print = { "No data to display" }
-    end
+    else
+        if #to_print > monitor.getSize() then
+            to_print = { "Too much data to display on monitor" }
+        elseif #to_print == 0 then
+            to_print = { "No data to display" }
+        end
+    else
 
     for i=1,#to_print do
         monitor.setCursorPos(1,i)
