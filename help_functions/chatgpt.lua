@@ -105,6 +105,7 @@ local function test(prompt, api_key)
                 local reply = responseJson.choices[1].message.content
 
                 -- Print the generated response from the model
+                print("Response: " .. reply)
                 return reply
             else
                 print("Error: Failed to get a valid response.")
