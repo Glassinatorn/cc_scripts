@@ -19,7 +19,7 @@ local function gather_response(prompt, api_key)
     local requesting = true
     http.request(endpoint, payloadJson, headers)
 
-    -- Wait for the HTTP response event
+    -- Wait for HTTP response 
     while requesting do
         local event, url, sourceText = os.pullEvent()
 
@@ -39,6 +39,7 @@ local function gather_response(prompt, api_key)
             else
                 print("Error: Failed to get a valid response.")
             end
+
             requesting = false
 
             -- Handle failed HTTP response
@@ -49,6 +50,4 @@ local function gather_response(prompt, api_key)
     end
 end
 
-return {
-    gather_response = gather_response
-}
+return { gather_response = gather_response }
