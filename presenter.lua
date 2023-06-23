@@ -5,29 +5,6 @@ local help_chatgpt = require("help_functions.chatgpt")
 local comfy = require("help_functions.comfy")
 local Data = require("monitor_scripts.colony_data")
 
-local function chatgpt(prompt)
-    -- enables requests to chatgpt by writing prompt to a file and then running 
-    -- a python script that reads the file and sends a request to the chatgpt 
-    -- api and then returns the result to a file that this function then reads
-    -- and returns the result
-
-    -- running python script
-    print("running python script")
-    shell.run("python3 chatgpt.py", prompt)
-
-    -- waiting for the file to be written by the python script
-    comfy.until_file_exists("reply.txt")
-
-    -- reading the result from the file 
-    local file = io.open("reply.txt", "r")
-    print("reading result from file")
-    local result = file:read("*a")
-    print("closing file...")
-    file:close()
-
-    return result
-end
-
 local function format_data()
     local data = Data.general_data()
     local mourning = "no"
