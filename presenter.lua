@@ -101,6 +101,6 @@ local api_key = require("keys")
 
 
 local prompt = "The colony is doing well. The citizens are happy and the population is panicing, write this as a story"
-local story = help_chatgpt.test(prompt, api_key["openai_key"])
+local story = help_chatgpt.gather_response(prompt, api_key["openai_key"])
 
 present_data(story)
