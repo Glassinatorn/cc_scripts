@@ -52,4 +52,5 @@ return {
     until_file_exists = until_file_exists,
     file_exists = file_exists,
     lines_from = lines_from,
+    split_strings = split_strings,
 }
