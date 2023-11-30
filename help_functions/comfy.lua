@@ -19,8 +19,37 @@ local function until_file_exists(filename)
     return true
 end
 
+local function file_exists(filename)
+    local file = io.open(filename, "rb")
+    if file then
+        file:close()
+    end
+    return file ~= nil
+end
+
+local function lines_from(filename)
+    if not file_exists(filename)
+        return {}
+    end
+
+    local lines = {}
+    for line in io.lines(filename) do
+        lines[#lines+1] = line
+end
+
+local function split_strings(input_string)
+    local words = {}
+    for word in string.match(input_string, "%S+") do
+        table.insert(words, word)
+    end
+
+    return words
+end
+
 return {
     get_number = get_number,
     get_text = get_text,
-    until_file_exists = until_file_exists
+    until_file_exists = until_file_exists,
+    file_exists = file_exists,
+    lines_from = lines_from,
 }
