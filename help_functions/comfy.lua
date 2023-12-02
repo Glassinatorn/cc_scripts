@@ -35,6 +35,9 @@ local function lines_from(filename)
     local lines = {}
     for line in io.lines(filename) do
         lines[#lines+1] = line
+    end
+
+    return lines
 end
 
 local function split_strings(input_string)

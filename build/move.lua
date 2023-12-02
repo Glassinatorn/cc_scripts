@@ -53,7 +53,11 @@ local function move_to(curr_position, dest)
     move_to(curr_position, dest)
 end
 
-local function traverse_layer(curr_position, width, depth)
+local function place_needed(curr_position, map)
+-- check map to see what is needed in the block below
+end
+
+local function traverse_layer(curr_position, map, width, depth)
     for i=1,width do
         turtle.turnLeft()
         turtle.forward()
@@ -62,7 +66,7 @@ local function traverse_layer(curr_position, width, depth)
         for i=1,depth do
             turtle.forward()
             curr_position.z = curr_position.z + 1
-            -- place_needed()
+            place_needed(curr_position, map)
         end
     end
 end
