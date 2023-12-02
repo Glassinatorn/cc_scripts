@@ -49,6 +49,10 @@ local function split_strings(input_string)
     return words
 end
 
+local function remove_char(string, char)
+    return string:gsub(char, '')
+end
+
 return {
     get_number = get_number,
     get_text = get_text,
