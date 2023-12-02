@@ -53,13 +53,6 @@ local function move_to(curr_position, dest)
     move_to(curr_position, dest)
 end
 
-local function place_needed(curr_position, map, width, height)
-    for line in map do
-        if line[index - (width * height)][1] == 191 then
-            turtle.placeDown() -- place down thing
-        end
-    end
-end
 
 local function traverse_layer(curr_position, map, width, depth)
     for i=1,width do

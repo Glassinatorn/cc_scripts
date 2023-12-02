@@ -35,3 +35,18 @@ local function build_stuff()
         build_stuff()
     end
 end 
+
+local function place_needed(curr_position, map, width, height)
+    for line in map do
+        if line[index - (width * height)][1] == 191 then
+            turtle.placeDown() -- place down thing
+        end
+    end
+end
+
+return {
+    farm = farm,
+    bridge = bridge,
+    build_stuff = build_stuff,
+    place_needed = place_needed,
+}
