@@ -43,7 +43,7 @@ end
 
 local function move_to(curr_position, dest)
     if curr_position = dest
-        return 
+        return true
     end
 
     x_move(curr_position, dest)
@@ -64,7 +64,6 @@ local function traverse_layer(curr_position, map, width, depth)
         for i=1,depth do
             turtle.forward()
             curr_position.z = curr_position.z + 1
-            place_needed(curr_position, map)
         end
     end
 end
