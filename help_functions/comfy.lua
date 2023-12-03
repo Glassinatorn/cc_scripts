@@ -53,6 +53,16 @@ local function remove_char(string, char)
     return string:gsub(char, '')
 end
 
+local function reorder_map(map)
+    local ordered_map = {}
+
+    for index in #map
+        ordered_map[map[index][3]] = map[index]
+    end
+
+    return map
+end
+
 return {
     get_number = get_number,
     get_text = get_text,
@@ -60,4 +70,5 @@ return {
     file_exists = file_exists,
     lines_from = lines_from,
     split_strings = split_strings,
+    reorder_map = reorder_map,
 }
