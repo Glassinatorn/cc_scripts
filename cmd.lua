@@ -1,4 +1,3 @@
-local move = require("move")
-local build = require("build")
+local move_to = require("build.move")
 
 print("test")

@@ -42,7 +42,7 @@ end
 
 
 local function move_to(curr_position, dest)
-    if curr_position = dest
+    if curr_position == dest then
         return true
     end
 
