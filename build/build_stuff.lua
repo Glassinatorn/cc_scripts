@@ -34,7 +34,7 @@ local function build_stuff()
         print("Invalid choice")
         build_stuff()
     end
-end 
+end
 
 local function place_needed(curr_position, map, width, height)
     for line in map do
