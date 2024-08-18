@@ -1,5 +1,19 @@
 local comfy = require("comfy") -- help funcitons
 
+local function step_right()
+    turtle.turnRight()
+    comfy.fuel_check()
+    turtle.forward()
+    turtle.turnLeft()
+end
+
+local function step_left()
+    turtle.turnLeft()
+    comfy.fuel_check()
+    turtle.forward()
+    turtle.turnRight()
+end
+
 function long_tunnel(length)
     if length > 0 then
         if check_minable_material_front() then
