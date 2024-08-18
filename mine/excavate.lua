@@ -41,12 +41,7 @@ function grid_of_tunnels(height, width, depth)
         turtle.forward()
 
         for i=1,width do
-            comfy.fuel_check()
-            
-            turtle.turnRight()
-            turtle.forward()
-            turtle.turnLeft()
-
+            step_right()
             long_tunnel(depth)
             turtle.forward()
         end
@@ -54,11 +49,7 @@ function grid_of_tunnels(height, width, depth)
         comfy.fuel_check()
 
         for i=1,width do
-            comfy.fuel_check()
-
-            turtle.turnLeft()
-            turtle.forward()
-            turtle.turnRight()
+            step_left()
         end
 
         comfy.fuel_check()
