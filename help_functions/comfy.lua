@@ -5,11 +5,10 @@ local functions search_inventory(search_name)
 
     for slot=1,16 do
         item = chest.getItemDetail(slot)
-	
+
 	if item.displayName == search_name then
 	    item = slot
 	end
-    end
 
     return item
 end
