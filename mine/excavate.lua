@@ -39,7 +39,7 @@ function long_tunnel(length)
         if check_minable_material_front() then
             comfy.fuel_check()
             turtle.dig()
-            turtle.forward()
+            step_forward()
 
             length = length - 1
 
@@ -47,38 +47,33 @@ function long_tunnel(length)
         end
     end
 
-    comfy.fuel_check()
-    turtle.back()
+    step_back()
 end
 
 function grid_of_tunnels(height, width, depth)
     long_tunnel(depth)
-    turtle.forward()
+    step_forward()
 
     for i=1,height do
         comfy.fuel_check()
         long_tunnel(depth)
-        turtle.forward()
+        step_forward()
 
         for i=1,width do
             step_right()
             long_tunnel(depth)
-            turtle.forward()
+            step_forward()
         end
-
-        comfy.fuel_check()
 
         for i=1,width do
             step_left()
         end
 
-        comfy.fuel_check()
-
-        turtle.up()
+        step_up()
     end
 
     for i=1,height do
-        turtle.down()
+        step_down()
         long_tunnel(depth)
     end
 end
