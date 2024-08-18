@@ -14,6 +14,26 @@ local function step_left()
     turtle.turnRight()
 end
 
+local function step_up()
+    comfy.fuel_check()
+    turtle.up()
+end
+
+local function step_down()
+    comfy.fuel_check()
+    turtle.down()
+end
+
+local function step_forward()
+    comfy.fuel_check()
+    turtle.forward()
+end
+
+local function step_back()
+    comfy.fuel_check()
+    turtle.back()
+end
+
 function long_tunnel(length)
     if length > 0 then
         if check_minable_material_front() then
