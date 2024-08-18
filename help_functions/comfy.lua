@@ -1,4 +1,16 @@
 -- These are just helper functions to make the code more compact and readable.
+local functions search_inventory(search_name)
+    local chest = peripheral.find("minecraft:chest")
+    local item
+
+    for slot=1,16 do
+        item = chest.getItemDetail(slot)
+	
+	if item.displayName == search_name
+    end
+
+    if not item then print("No item") return end
+end
 
 local function fuel_check()
     if turtle.getFuelLevel() < 5 then
@@ -70,6 +82,7 @@ local function reorder_map(map)
 end
 
 return {
+    search_inventory = search_inventory,
     fuel_check = fuel_check,
     get_number = get_number,
     get_text = get_text,
