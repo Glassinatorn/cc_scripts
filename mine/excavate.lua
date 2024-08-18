@@ -1,9 +1,9 @@
+local comfy = require("comfy") -- help funcitons
+
 function long_tunnel(length)
     if length > 0 then
         if check_minable_material_front() then
-            if turtle.getFuelLevel() < 5 then
-                turtle.refuel()
-            end
+            comfy.fuel_check()
             turtle.dig()
             turtle.forward()
 
@@ -13,10 +13,7 @@ function long_tunnel(length)
         end
     end
 
-    if turtle.getFuelLevel() < 5 then
-        turtle.refuel()
-    end
-
+    comfy.fuel_check()
     turtle.back()
 end
 
@@ -25,43 +22,32 @@ function grid_of_tunnels(height, width, depth)
     turtle.forward()
 
     for i=1,height do
-        if turtle.getFuelLevel() < 5 then
-            turtle.refuel()
-        end
-
+        comfy.fuel_check()
         long_tunnel(depth)
         turtle.forward()
 
         for i=1,width do
-            if turtle.getFuelLevel() < 5 then
-                turtle.refuel()
-            end
-
+            comfy.fuel_check()
+            
             turtle.turnRight()
             turtle.forward()
             turtle.turnLeft()
+
             long_tunnel(depth)
             turtle.forward()
         end
 
-        if turtle.getFuelLevel() < 5 then
-            turtle.refuel()
-        end
-
+        comfy.fuel_check()
 
         for i=1,width do
-            if turtle.getFuelLevel() < 5 then
-                turtle.refuel()
-            end
+            comfy.fuel_check()
 
             turtle.turnLeft()
             turtle.forward()
             turtle.turnRight()
         end
 
-        if turtle.getFuelLevel() < 5 then
-            turtle.refuel()
-        end
+        comfy.fuel_check()
 
         turtle.up()
     end
