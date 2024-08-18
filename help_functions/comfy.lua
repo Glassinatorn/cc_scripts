@@ -1,15 +1,17 @@
 -- These are just helper functions to make the code more compact and readable.
 local functions search_inventory(search_name)
     local chest = peripheral.find("minecraft:chest")
-    local item
+    local item = -1
 
     for slot=1,16 do
         item = chest.getItemDetail(slot)
 	
-	if item.displayName == search_name
+	if item.displayName == search_name then
+	    item = slot
+	end
     end
 
-    if not item then print("No item") return end
+    return item
 end
 
 local function fuel_check()
