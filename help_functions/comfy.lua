@@ -1,5 +1,11 @@
 -- These are just helper functions to make the code more compact and readable.
 
+local function fuel_check()
+    if turtle.getFuelLevel() < 5 then
+        turtle.refuel()
+    end
+end
+
 local function get_number(prompt)
     print(prompt)
     local input = io.read()
@@ -64,6 +70,7 @@ local function reorder_map(map)
 end
 
 return {
+    fuel_check = fuel_check,
     get_number = get_number,
     get_text = get_text,
     until_file_exists = until_file_exists,
