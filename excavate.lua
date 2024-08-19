@@ -1,4 +1,4 @@
-local comfy = require("comfy") -- help funcitons
+local comfy = require("help_functions.comfy") -- help funcitons
 
 local function step_right()
     turtle.turnRight()
