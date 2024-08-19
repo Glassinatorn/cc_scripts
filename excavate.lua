@@ -1,4 +1,3 @@
-package.path = package.path .. ";../?.lua"
 local comfy = require("comfy") -- help funcitons
 
 local function step_right()
