@@ -34,7 +34,7 @@ local function step_back()
     turtle.back()
 end
 
-function long_tunnel(length)
+local function long_tunnel(length)
     if length > 0 then
         if check_minable_material_front() then
             comfy.fuel_check()
@@ -49,7 +49,7 @@ function long_tunnel(length)
     end
 end
 
-function grid_of_tunnels(height, width, depth)
+local function grid_of_tunnels(height, width, depth)
     long_tunnel(depth)
 
     for i=1,height do
@@ -74,7 +74,7 @@ function grid_of_tunnels(height, width, depth)
     end
 end
 
-function check_minable_material_front()
+local function check_minable_material_front()
     -- checks if the block given is able to be mined
     local if_block, present_block = turtle.inspect()
 
