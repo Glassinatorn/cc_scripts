@@ -45,9 +45,8 @@ function long_tunnel(length)
 
             long_tunnel(length)
         end
+        step_back()
     end
-
-    step_back()
 end
 
 function grid_of_tunnels(height, width, depth)
