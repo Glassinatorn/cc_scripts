@@ -80,6 +80,42 @@ local function reorder_map(map)
     return map
 end
 
+local function step_forward()
+    fuel_check()
+    turtle.forward()
+end
+
+local function step_back()
+    fuel_check()
+    turtle.back()
+end
+
+local function step_left()
+    turtle.turnLeft()
+    fuel_check()
+    turtle.forward()
+    turtle.turnRight()
+end
+
+local function step_right()
+    turtle.turnRight()
+    fuel_check()
+    turtle.forward()
+    turtle.turnLeft()
+end
+
+local function step_down()
+    fuel_check()
+    turtle.down()
+end
+
+local function step_up()
+    fuel_check()
+    turtle.up()
+end
+
+
+
 return {
     search_inventory = search_inventory,
     fuel_check = fuel_check,
@@ -90,4 +126,10 @@ return {
     lines_from = lines_from,
     split_strings = split_strings,
     reorder_map = reorder_map,
+    step_forward = step_forward,
+    step_back = step_back,
+    step_left = step_left,
+    step_right = step_right,
+    step_down = step_down,
+    step_up = step_up,
 }
