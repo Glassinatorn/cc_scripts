@@ -20,13 +20,11 @@ local function fuel_check()
 end
 
 local function get_number(prompt)
-    print(prompt)
     local input = io.read()
     return tonumber(input)
 end
 
 local function get_text(prompt)
-    print(prompt)
     local input = io.read()
     return input
 end
