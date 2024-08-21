@@ -43,12 +43,12 @@ local function grid_of_tunnels(height, width, depth)
             comfy.step_left()
         end
 
+        long_tunnel(depth)
         comfy.step_up()
     end
 
     for i=1,height do
         comfy.step_down()
-        long_tunnel(depth)
     end
 end
 
