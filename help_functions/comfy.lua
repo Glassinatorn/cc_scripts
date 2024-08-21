@@ -1,5 +1,5 @@
 -- These are just helper functions to make the code more compact and readable.
-local function search_inventory(search_name))
+local function search_inventory(search_name)
     local chest = peripheral.find("minecraft:chest")
     local item = -1
 
