@@ -1,10 +1,11 @@
 -- These are just helper functions to make the code more compact and readable.
-local functions search_inventory(search_name)
+local function search_inventory(search_name)
     local chest = peripheral.find("minecraft:chest")
     local item = -1
 
     for slot=1,16 do
         item = chest.getItemDetail(slot)
+    end
 
 	if item.displayName == search_name then
 	    item = slot
@@ -45,8 +46,8 @@ local function file_exists(filename)
 end
 
 local function lines_from(filename)
-    if not file_exists(filename)
-        return {}
+    if not file_exists(filename) then
+        return nil
     end
 
     local lines = {}
@@ -73,12 +74,48 @@ end
 local function reorder_map(map)
     local ordered_map = {}
 
-    for index in #map
+    for index in #map do
         ordered_map[map[index][3]] = map[index]
     end
 
     return map
 end
+
+local function step_forward()
+    fuel_check()
+    turtle.forward()
+end
+
+local function step_back()
+    fuel_check()
+    turtle.back()
+end
+
+local function step_left()
+    turtle.turnLeft()
+    fuel_check()
+    turtle.forward()
+    turtle.turnRight()
+end
+
+local function step_right()
+    turtle.turnRight()
+    fuel_check()
+    turtle.forward()
+    turtle.turnLeft()
+end
+
+local function step_down()
+    fuel_check()
+    turtle.down()
+end
+
+local function step_up()
+    fuel_check()
+    turtle.up()
+end
+
+
 
 return {
     search_inventory = search_inventory,
@@ -90,4 +127,10 @@ return {
     lines_from = lines_from,
     split_strings = split_strings,
     reorder_map = reorder_map,
+    step_forward = step_forward,
+    step_back = step_back,
+    step_left = step_left,
+    step_right = step_right,
+    step_down = step_down,
+    step_up = step_up,
 }

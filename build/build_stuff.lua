@@ -1,5 +1,5 @@
 -- API to build things 
-local comfy = require("comfy")
+local comfy = require("help_functions.comfy")
 
 local function farm()
     -- getting the height of the farm
