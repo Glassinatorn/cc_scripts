@@ -1,5 +1,5 @@
 -- These are just helper functions to make the code more compact and readable.
-local functions search_inventory(search_name)
+local function search_inventory(search_name))
     local chest = peripheral.find("minecraft:chest")
     local item = -1
 
@@ -73,7 +73,7 @@ end
 local function reorder_map(map)
     local ordered_map = {}
 
-    for index in #map
+    for index in #map do
         ordered_map[map[index][3]] = map[index]
     end
 
