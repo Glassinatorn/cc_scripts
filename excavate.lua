@@ -34,9 +34,6 @@ local function grid_of_tunnels(height, width, depth)
     long_tunnel(depth)
 
     for i=1,height do
-        comfy.fuel_check()
-        long_tunnel(depth)
-
         for i=1,width do
             comfy.step_right()
             long_tunnel(depth)
