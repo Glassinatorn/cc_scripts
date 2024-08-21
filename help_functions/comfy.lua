@@ -45,8 +45,8 @@ local function file_exists(filename)
 end
 
 local function lines_from(filename)
-    if not file_exists(filename)
-        return {}
+    if not file_exists(filename) then
+        return nil
     end
 
     local lines = {}
