@@ -1,5 +1,20 @@
 local comfy = require("help_functions.comfy") -- help funcitons
 
+local function check_minable_material_front()
+    -- checks if the block given is able to be mined
+    local if_block, present_block = turtle.inspect()
+
+    if if_block then
+        if present_block["tags"]["minecraft:mineable/pickaxe"] == true then
+            return true
+        end
+    end
+
+    -- print(textutils.serialise(present_block))
+    return false
+end
+
+
 local function long_tunnel(length)
     if length > 0 then
         if check_minable_material_front() then
@@ -40,19 +55,6 @@ local function grid_of_tunnels(height, width, depth)
     end
 end
 
-local function check_minable_material_front()
-    -- checks if the block given is able to be mined
-    local if_block, present_block = turtle.inspect()
-
-    if if_block then
-        if present_block["tags"]["minecraft:mineable/pickaxe"] == true then
-            return true
-        end
-    end
-
-    -- print(textutils.serialise(present_block))
-    return false
-end
 
 return {
     long_tunnel = long_tunnel,
