@@ -14,6 +14,19 @@ local function check_minable_material_front()
     return false
 end
 
+local function check_minable_material_down()
+    -- checks if the block given is able to be mined
+    local if_block, present_block = turtle.inspectDown()
+
+    if if_block then
+        if present_block["tags"]["minecraft:mineable/pickaxe"] == true then
+            return true
+        end
+    end
+
+    -- print(textutils.serialise(present_block))
+    return false
+end
 
 local function tunnel(length)
     for i=1, length do
@@ -50,9 +63,11 @@ end
 
 local function hole(depth)
     for i=1, depth do
-        comfy.fuel_check()
-        turtle.digDown()
-        comfy.step_down()
+        if check_minable_material_down() then
+            comfy.fuel_check()
+            turtle.digDown()
+            comfy.step_down()
+        end
     end
     for i = 1, depth do
         comfy.step_up()
@@ -63,4 +78,5 @@ return {
     long_tunnel = long_tunnel,
     grid_of_tunnels = grid_of_tunnels,
     check_minable_material_front = check_minable_material_front,
+    check_minable_material_down = check_minable_material_down,
 }
