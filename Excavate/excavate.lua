@@ -97,6 +97,8 @@ end
 return {
     tunnel = tunnel,
     grid_of_tunnels = grid_of_tunnels,
+    hole = hole,
+    grid_of_holes = grid_of_holes,
     check_minable_material_front = check_minable_material_front,
     check_minable_material_down = check_minable_material_down,
 }
