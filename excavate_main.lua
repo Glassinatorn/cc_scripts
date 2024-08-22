@@ -7,7 +7,7 @@ function main()
     write("> ")
     local msg = read()
     if msg == "1" then
-        excavate.grid_of_tunnels(2, 0, 2)
+        excavate.grid_of_tunnels(2, 2, 2)
     end
 end
 

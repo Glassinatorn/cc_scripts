@@ -29,8 +29,6 @@ local function long_tunnel(length)
 end
 
 local function grid_of_tunnels(height, width, depth)
-    long_tunnel(depth)
-
     for i=1,height do
         for i=1,width do
             comfy.step_right()
