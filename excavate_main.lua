@@ -1,4 +1,4 @@
-local excavate = require("excavate")
+local excavate = require("Excavate.excavate")
 
 -- main loop for the diggeers
 function main()
