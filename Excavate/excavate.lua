@@ -48,8 +48,15 @@ local function grid_of_tunnels(height, width, depth)
     end
 end
 
-local function hole()
-    
+local function hole(depth)
+    for i=1, depth do
+        comfy.fuel_check()
+        turtle.digDown()
+        comfy.step_down()
+    end
+    for i = 1, depth do
+        comfy.step_up()
+    end
 end
 
 return {
