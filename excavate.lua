@@ -16,16 +16,16 @@ end
 
 
 local function long_tunnel(length)
-    if length > 0 then
+    for i=1, length do
         if check_minable_material_front() then
             comfy.fuel_check()
             turtle.dig()
             comfy.step_forward()
 
             length = length - 1
-
-            long_tunnel(length)
         end
+    end
+    for i=1, length do
         comfy.step_back()
     end
 end
