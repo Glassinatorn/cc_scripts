@@ -15,7 +15,7 @@ local function search_inventory(search_name)
 end
 
 local function fuel_check()
-    if turtle.getFuelLevel() < 5 then
+    if turtle.getFuelLevel() <= 5 then
         turtle.refuel()
     end
 end
