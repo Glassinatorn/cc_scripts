@@ -15,7 +15,7 @@ local function check_minable_material_front()
 end
 
 
-local function long_tunnel(length)
+local function tunnel(length)
     for i=1, length do
         if check_minable_material_front() then
             comfy.fuel_check()
@@ -32,14 +32,14 @@ local function grid_of_tunnels(height, width, depth)
     for i=1,height do
         for i=1,width do
             comfy.step_right()
-            long_tunnel(depth)
+            tunnel(depth)
         end
 
         for i=1,width do
             comfy.step_left()
         end
 
-        long_tunnel(depth)
+        tunnel(depth)
         comfy.step_up()
     end
 
@@ -48,6 +48,9 @@ local function grid_of_tunnels(height, width, depth)
     end
 end
 
+local function hole()
+    
+end
 
 return {
     long_tunnel = long_tunnel,
