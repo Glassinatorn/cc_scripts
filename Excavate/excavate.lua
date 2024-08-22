@@ -74,6 +74,26 @@ local function hole(depth)
     end
 end
 
+local function grid_of_holes(depth, width, height)
+    for i=1,height do
+        for i=1,width do
+            comfy.step_right()
+            hole(depth)
+        end
+
+        for i=1,width do
+            comfy.step_left()
+        end
+
+        hole(depth)
+        comfy.step_forward()
+    end
+
+    for i=1,height do
+        comfy.step_back()
+    end
+end
+
 return {
     tunnel = tunnel,
     grid_of_tunnels = grid_of_tunnels,
