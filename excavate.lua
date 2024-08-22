@@ -21,8 +21,6 @@ local function long_tunnel(length)
             comfy.fuel_check()
             turtle.dig()
             comfy.step_forward()
-
-            length = length - 1
         end
     end
     for i=1, length do
