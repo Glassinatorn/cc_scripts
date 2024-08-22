@@ -75,7 +75,7 @@ local function hole(depth)
 end
 
 return {
-    long_tunnel = long_tunnel,
+    tunnel = tunnel,
     grid_of_tunnels = grid_of_tunnels,
     check_minable_material_front = check_minable_material_front,
     check_minable_material_down = check_minable_material_down,
