@@ -1,4 +1,14 @@
 -- These are just helper functions to make the code more compact and readable.
+local function table_length(table)
+    local num = 0
+    
+    for _ in pairs(table) do
+        num = num + 1
+    end
+
+    return num
+end
+
 local function search_inventory(search_name)
     for slot=1,16 do
         item = turtle.getItemDetail(slot)
