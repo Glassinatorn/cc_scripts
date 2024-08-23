@@ -1,15 +1,13 @@
 -- These are just helper functions to make the code more compact and readable.
 local function search_inventory(search_name)
-    local chest = peripheral.find("minecraft:chest")
-    local item = -1
-
     for slot=1,16 do
-        item = chest.getItemDetail(slot)
+        item = turtle.getItemDetail(slot)
+
+        if item.displayName == search_name then
+            item = slot
+        end
     end
 
-	if item.displayName == search_name then
-	    item = slot
-	end
 
     return item
 end

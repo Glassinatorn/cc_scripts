@@ -9,10 +9,11 @@ local function farm()
     local wall_length = comfy.get_number("Length of the wall?")
 end
 
-local function bridge()
+local function build_from_array(array)
     -- getting the length of the bridge
     -- local length = comfy.get_number("How long would you like the bridge to be?")
     comfy.search_inventory("minecraft:stone")
+
 end
 
 -- lua switch case
@@ -26,7 +27,7 @@ local function build_stuff()
     if choice == "1" then
         farm()
     elseif choice == "2" then
-        bridge()
+        build_from_array()
     elseif choice == "3" then
         print("Exiting...")
         os.exit()
