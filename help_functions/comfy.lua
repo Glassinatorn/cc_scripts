@@ -8,7 +8,6 @@ local function search_inventory(search_name)
         end
     end
 
-
     return item
 end
 

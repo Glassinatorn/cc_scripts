@@ -12,8 +12,12 @@ end
 local function build_from_array(array)
     -- getting the length of the bridge
     -- local length = comfy.get_number("How long would you like the bridge to be?")
-    comfy.search_inventory("minecraft:stone")
+    local slot = comfy.search_inventory("minecraft:stone")
 
+    turtle.select(slot)
+    for i=1, length(array) do
+        place_down(array[i])
+    end
 end
 
 -- lua switch case
