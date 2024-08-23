@@ -12,12 +12,10 @@ function main()
     if msg == "1" then
         build.bridge()
     elseif msg == "2" then
-        local chest = peripheral.find("minecraft:chest")
-        local item = -1
-
-        for slot=1,16 do
-            item = chest.getItemDetail(slot)
-            write(item)
+        for slot=1,1 do
+            local count = turtle.getItemDetail(slot)
+            local name = turtle.getItemDetail(slot)
+            print(name["name"])
         end
     end
 end
