@@ -11,7 +11,7 @@ end
 
 local function bridge()
     -- getting the length of the bridge
-    local length = comfy.get_number("How long would you like the bridge to be?")
+    -- local length = comfy.get_number("How long would you like the bridge to be?")
 end
 
 -- lua switch case
