@@ -12,6 +12,7 @@ end
 local function bridge()
     -- getting the length of the bridge
     -- local length = comfy.get_number("How long would you like the bridge to be?")
+    comfy.search_inventory("minecraft:stone")
 end
 
 -- lua switch case
