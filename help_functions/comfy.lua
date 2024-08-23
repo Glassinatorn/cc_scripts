@@ -147,4 +147,5 @@ return {
     step_right = step_right,
     step_down = step_down,
     step_up = step_up,
+    place_thing = place_thing,
 }
