@@ -18,6 +18,13 @@ local function build_from_array(array)
     for i=1, length(array) do
         place_down(array[i])
     end
+    for width, width_index in ipairs(array) do
+        for height, height_index in ipairs(width_index) do
+            for depth, depth_index in ipairs(height_index) do
+                
+            end
+        end
+    end
 end
 
 -- lua switch case
