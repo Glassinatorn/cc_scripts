@@ -8,8 +8,9 @@ function main()
     write("1: build a bridge")
     local msg = read()
 
-
     if msg == "1" then
         build.bridge()
     end
 end
+
+main()
