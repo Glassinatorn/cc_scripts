@@ -14,10 +14,6 @@ local function build_from_array(thing_to_build)
     -- local length = comfy.get_number("How long would you like the bridge to be?")
     local slot = comfy.search_inventory("minecraft:stone")
 
-    turtle.select(slot)
-    for i=1, length(array) do
-        place_down(array[i])
-    end
 
     local width_length = comfy.table_length(thing_to_build)
     for width, width_index in ipairs(thing_to_build) do
