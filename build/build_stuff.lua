@@ -9,7 +9,7 @@ local function farm()
     local wall_length = comfy.get_number("Length of the wall?")
 end
 
-local function build_from_array(array)
+local function build_from_array(thing_to_build)
     -- getting the length of the bridge
     -- local length = comfy.get_number("How long would you like the bridge to be?")
     local slot = comfy.search_inventory("minecraft:stone")
@@ -18,14 +18,18 @@ local function build_from_array(array)
     for i=1, length(array) do
         place_down(array[i])
     end
-    for width, width_index in ipairs(array) do
+
+    local width_length = comfy.table_length(thing_to_build)
+    for width, width_index in ipairs(thing_to_build) do
+        local height_length = comfy.table_length(width_index)
         for height, height_index in ipairs(width_index) do
-            for depth, depth_index in ipairs(height_index) do
-                
+            local depth_length = comfy.table_length(height_index)
+                for depth, depth_index in ipairs(height_index) do
+                    
+                end
             end
         end
     end
-end
 
 -- lua switch case
 local function build_stuff()

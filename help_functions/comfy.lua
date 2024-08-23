@@ -125,6 +125,7 @@ end
 
 
 return {
+    table_length = table_length,
     search_inventory = search_inventory,
     fuel_check = fuel_check,
     get_number = get_number,
