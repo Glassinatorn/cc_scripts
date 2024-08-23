@@ -76,12 +76,12 @@ end
 
 local function grid_of_holes(depth, width, height)
     for i=1,height do
-        for i=1,width do
+        for i=2,width do
             comfy.step_right()
             hole(depth)
         end
 
-        for i=1,width do
+        for i=2,width do
             comfy.step_left()
         end
 
