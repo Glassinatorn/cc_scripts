@@ -41,7 +41,11 @@ end
 local function fuel_check()
     if turtle.getFuelLevel() <= 5 then
         local slot = search_inventory("minecraft:coal")
-        turtle.select(slot)
+
+        if slot ~= nil then
+            turtle.select(slot)
+        end
+            
         turtle.refuel()
     end
 end
