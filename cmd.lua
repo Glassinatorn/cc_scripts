@@ -15,12 +15,12 @@ function main()
         local thing = {
             first = {
                 second = {
-                    {x, x, y, x, y, x, y, x, x},
-                    {x, x, y, x, y, x, y, x, x},
-                    {x, x, y, x, y, x, y, x, x},
-                    {x, x, y, x, x, x, y, x, x},
-                    {x, x, x, x, x, x, x, x, x},
-                    {x, x, x, x, x, x, x, x, x},
+                    {"x", "x", "y", "x", "y", "x", "y", "x", "x"},
+                    {"x", "x", "y", "x", "y", "x", "y", "x", "x"},
+                    {"x", "x", "y", "x", "y", "x", "y", "x", "x"},
+                    {"x", "x", "y", "x", "x", "x", "y", "x", "x"},
+                    {"x", "x", "x", "x", "x", "x", "x", "x", "x"},
+                    {"x", "x", "x", "x", "x", "x", "x", "x", "x"},
                 }
             }
         }
