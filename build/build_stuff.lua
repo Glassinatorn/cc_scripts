@@ -10,11 +10,6 @@ local function farm()
 end
 
 local function build_from_array(thing_to_build)
-    -- getting the length of the bridge
-    -- local length = comfy.get_number("How long would you like the bridge to be?")
-    local slot = comfy.search_inventory("minecraft:stone")
-
-
     local width_offset = comfy.table_length(thing_to_build)
     for i = 1, width_offset do
         comfy.step_right()
