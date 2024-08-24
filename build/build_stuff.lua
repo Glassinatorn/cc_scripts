@@ -15,16 +15,24 @@ local function build_from_array(thing_to_build)
     local slot = comfy.search_inventory("minecraft:stone")
 
 
-    local width_length = comfy.table_length(thing_to_build)
+    local width_offset = comfy.table_length(thing_to_build)
+    for i = 1, width_offset do
+        comfy.step_right()
+    end
     for width, width_index in ipairs(thing_to_build) do
-        local height_length = comfy.table_length(width_index)
+        -- TODO: reverse height table
         for height, height_index in ipairs(width_index) do
-            local depth_length = comfy.table_length(height_index)
-                for depth, depth_index in ipairs(height_index) do
-                    
-                end
+            local depth_offset = comfy.table_length(height_index)
+            for i = 1, depth_offset do
+                turtle.step_forward()
             end
+            for depth, depth_index in ipairs(height_index) do
+                comfy.place_thing(depth_index.material) -- the index is supposed to store name of material
+                comfy.step_back()
+            end
+            comfy.step_up()
         end
+        comfy.step_left()
     end
 
 -- lua switch case
