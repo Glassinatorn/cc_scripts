@@ -12,11 +12,19 @@ function main()
     if msg == "1" then
         build.bridge()
     elseif msg == "2" then
-        for slot=1,1 do
-            local count = turtle.getItemDetail(slot)
-            local name = turtle.getItemDetail(slot)
-            print(name["name"])
-        end
+        local thing = {
+            first = {
+                second = {
+                    {x, x, y, x, y, x, y, x, x},
+                    {x, x, y, x, y, x, y, x, x},
+                    {x, x, y, x, y, x, y, x, x},
+                    {x, x, y, x, x, x, y, x, x},
+                    {x, x, x, x, x, x, x, x, x},
+                    {x, x, x, x, x, x, x, x, x},
+                }
+            }
+        }
+        build.build_from_array(thing)
     end
 end
 
