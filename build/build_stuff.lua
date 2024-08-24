@@ -20,7 +20,6 @@ local function build_from_array(thing_to_build)
         comfy.step_right()
     end
     for width, height_table in ipairs(thing_to_build) do
-        -- TODO: reverse height table
         local reversed_height_table = comfy.reverse_table(height_table)
         for height, depth_table in ipairs(reversed_height_table) do
             local depth_offset = comfy.table_length(depth_table)
