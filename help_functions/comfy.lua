@@ -23,11 +23,17 @@ local function reverse_table(table)
 end
 
 local function search_inventory(search_name)
+    local item = {}
+
     for slot=1,16 do
         item = turtle.getItemDetail(slot)
+        if item then
+            print("item: ")
+            print(item)
 
-        if item.displayName == search_name then
-            item = slot
+            if item.name == search_name then
+                item = slot
+            end
         end
     end
 
