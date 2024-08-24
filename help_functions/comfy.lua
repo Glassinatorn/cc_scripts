@@ -10,9 +10,14 @@ local function table_length(table)
 end
 
 local function reverse_table(table)
-    local reversed_table = table.sort(table, 
-        function(a,b) return a > b 
-    end) 
+    if table and #table > 1 then
+		local temp = nil
+		for n = 1,math.floor(#table/2) do
+			temp = table[n]
+			table[n] = table[#table-(n-1)]
+			table[#table-(n-1)] = temp
+		end 
+	end
 end
 
 local function search_inventory(search_name)

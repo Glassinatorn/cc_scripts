@@ -1,5 +1,6 @@
 -- API to build things 
 local comfy = require("help_functions.comfy")
+local debugging = require("help_functions.debugging")
 
 local function farm()
     -- getting the height of the farm
@@ -16,12 +17,13 @@ local function build_from_array(thing_to_build)
     -- end
 
     --print(require("help_functions.debugging").dump_table(thing_to_build))
-    -- for width, height_table in ipairs(thing_to_build) do
-    for height_table in thing_to_build do
-        write("inside")
-        local reversed_height_table = comfy.reverse_table(height_table)
+    for width, height_table in ipairs(thing_to_build) do
 
-        write("reversed: " .. reversed_height_table)
+        write(debugging.dump_table(height_table))
+        write(comfy.reverse_table(height_table))
+        --local reversed_height_table = comfy.reverse_table(height_table)
+
+        --write("reversed: " .. reversed_height_table)
         -- for height, depth_table in ipairs(reversed_height_table) do
         --     write("inside")
         --     local depth_offset = comfy.table_length(depth_table)
