@@ -28,11 +28,9 @@ local function search_inventory(search_name)
     for slot=1,16 do
         item = turtle.getItemDetail(slot)
         if item then
-            print("item: ")
-            print(item)
-
             if item.name == search_name then
                 item = slot
+                return item
             end
         end
     end
