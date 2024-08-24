@@ -19,14 +19,15 @@ local function build_from_array(thing_to_build)
     for i = 1, width_offset do
         comfy.step_right()
     end
-    for width, width_index in ipairs(thing_to_build) do
+    for width, height_table in ipairs(thing_to_build) do
         -- TODO: reverse height table
-        for height, height_index in ipairs(width_index) do
-            local depth_offset = comfy.table_length(height_index)
+        local reversed_height_table = comfy.reverse_table(height_table)
+        for height, depth_table in ipairs(reversed_height_table) do
+            local depth_offset = comfy.table_length(depth_table)
             for i = 1, depth_offset do
                 turtle.step_forward()
             end
-            for depth, depth_index in ipairs(height_index) do
+            for depth, depth_index in ipairs(depth_table) do
                 comfy.place_thing(depth_index.material) -- the index is supposed to store name of material
                 comfy.step_back()
             end
