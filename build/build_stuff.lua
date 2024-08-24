@@ -66,5 +66,6 @@ return {
     farm = farm,
     bridge = bridge,
     build_stuff = build_stuff,
+    build_from_array = build_from_array,
     place_needed = place_needed,
 }
