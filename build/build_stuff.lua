@@ -34,6 +34,7 @@ local function build_from_array(thing_to_build)
         end
         comfy.step_left()
     end
+end
 
 -- lua switch case
 local function build_stuff()
