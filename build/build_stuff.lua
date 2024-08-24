@@ -22,7 +22,9 @@ local function build_from_array(thing_to_build)
                 turtle.step_forward()
             end
             for depth, depth_index in ipairs(depth_table) do
-                comfy.place_thing(depth_index.material) -- the index is supposed to store name of material
+                if depth_index == "x" then
+                    comfy.place_thing("minecraft:cobblestone") -- the index is supposed to store name of material
+                end
                 comfy.step_back()
             end
             comfy.step_up()
