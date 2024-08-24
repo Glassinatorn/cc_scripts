@@ -17,29 +17,29 @@ local function build_from_array(thing_to_build)
     -- end
 
     --print(require("help_functions.debugging").dump_table(thing_to_build))
-    for width, height_table in ipairs(thing_to_build) do
 
-        write(debugging.dump_table(height_table))
-        write(comfy.reverse_table(height_table))
-        --local reversed_height_table = comfy.reverse_table(height_table)
+    local reversed_table = comfy.reverse_table(thing_to_build)
+    for width, height_table in ipairs(reversed_table) do
+
+        --write(debugging.dump_table(height_table))
 
         --write("reversed: " .. reversed_height_table)
-        -- for height, depth_table in ipairs(reversed_height_table) do
+        -- for height, depth_table in ipairs(height_table) do
         --     write("inside")
-        --     local depth_offset = comfy.table_length(depth_table)
-        --     write("time to move forward")
-        --     for i = 1, depth_offset do
-        --         turtle.step_forward()
-        --     end
-        --     for depth, depth_index in ipairs(depth_table) do
-        --         if depth_index == "x" then
-        --             comfy.place_thing("minecraft:cobblestone") -- the index is supposed to store name of material
-        --         end
-        --         comfy.step_back()
-        --     end
-        --     comfy.step_up()
-        -- end
-        -- comfy.step_left()
+        print(debugging.dump_table(height_table))
+        local depth_offset = comfy.table_length(height_table)
+        for i = 1, depth_offset do
+            comfy.step_forward()
+        end
+        for index, value in ipairs(height_table) do
+            print(index)
+            if value == "x" then
+                print("found place to build")
+                comfy.place_thing("minecraft:cobblestone") -- the index is supposed to store name of material
+            end
+            comfy.step_back()
+        end
+        comfy.step_up()
     end
 end
 

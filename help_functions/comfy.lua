@@ -18,6 +18,8 @@ local function reverse_table(table)
 			table[#table-(n-1)] = temp
 		end 
 	end
+
+    return table
 end
 
 local function search_inventory(search_name)
