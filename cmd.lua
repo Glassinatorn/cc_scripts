@@ -13,16 +13,12 @@ function main()
         build.bridge()
     elseif msg == "2" then
         local thing = {
-            first = {
-                second = {
-                    {"x", "x", "y", "x", "y", "x", "y", "x", "x"},
-                    {"x", "x", "y", "x", "y", "x", "y", "x", "x"},
-                    {"x", "x", "y", "x", "y", "x", "y", "x", "x"},
-                    {"x", "x", "y", "x", "x", "x", "y", "x", "x"},
-                    {"x", "x", "x", "x", "x", "x", "x", "x", "x"},
-                    {"x", "x", "x", "x", "x", "x", "x", "x", "x"},
-                }
-            }
+            {"x", "x", "y", "x", "y", "x", "y", "x", "x"},
+            {"x", "x", "y", "x", "y", "x", "y", "x", "x"},
+            {"x", "x", "y", "x", "y", "x", "y", "x", "x"},
+            {"x", "x", "y", "x", "x", "x", "y", "x", "x"},
+            {"x", "x", "x", "x", "x", "x", "x", "x", "x"},
+            {"x", "x", "x", "x", "x", "x", "x", "x", "x"},
         }
         build.build_from_array(thing)
     end
