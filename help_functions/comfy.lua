@@ -9,6 +9,12 @@ local function table_length(table)
     return num
 end
 
+local function reverse_table(table)
+    local reversed_table = table.sort(table, 
+        function(a,b) return a > b 
+    end) 
+end
+
 local function search_inventory(search_name)
     for slot=1,16 do
         item = turtle.getItemDetail(slot)
@@ -132,6 +138,7 @@ end
 
 return {
     table_length = table_length,
+    reverse_table = reverse_table,
     search_inventory = search_inventory,
     fuel_check = fuel_check,
     get_number = get_number,
