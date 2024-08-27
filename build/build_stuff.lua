@@ -32,9 +32,7 @@ local function build_from_array(thing_to_build)
             comfy.step_forward()
         end
         for index, value in ipairs(height_table) do
-            print(index)
             if value == "x" then
-                print("found place to build")
                 comfy.place_thing("minecraft:cobblestone") -- the index is supposed to store name of material
             end
             comfy.step_back()
