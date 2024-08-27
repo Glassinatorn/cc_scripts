@@ -12,6 +12,7 @@ end
 
 local function build_from_array(thing_to_build)
     local width_offset = comfy.table_length(thing_to_build)
+    local height = 0
     -- for i = 2, width_offset do
     --     comfy.step_right()
     -- end
@@ -31,8 +32,14 @@ local function build_from_array(thing_to_build)
                 end
                 comfy.step_back()
             end
+            height = height + 1
             comfy.step_up()
         end
+        
+        for i = 1, height do
+            comfy.step_down()
+        end
+        height = 0
         comfy.step_right()
     end
     for i = 1, width_offset do
