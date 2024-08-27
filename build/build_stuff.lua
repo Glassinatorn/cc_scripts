@@ -18,26 +18,25 @@ local function build_from_array(thing_to_build)
 
     --print(require("help_functions.debugging").dump_table(thing_to_build))
 
-    local reversed_table = comfy.reverse_table(thing_to_build)
-    for width, height_table in ipairs(reversed_table) do
-
-        --write(debugging.dump_table(height_table))
-
-        --write("reversed: " .. reversed_height_table)
-        -- for height, depth_table in ipairs(height_table) do
-        --     write("inside")
-        print(debugging.dump_table(height_table))
-        local depth_offset = comfy.table_length(height_table)
-        for i = 1, depth_offset do
-            comfy.step_forward()
-        end
-        for index, value in ipairs(height_table) do
-            if value == "x" then
-                comfy.place_thing("minecraft:cobblestone") -- the index is supposed to store name of material
+    for width_step, height_table in ipairs(thing_to_build) do
+        local reversed_table = comfy.reverse_table(height_table)
+        for height_index, row in ipairs(reversed_table) do
+            local depth_offset = comfy.table_length(row)
+            for i = 1, depth_offset do
+                comfy.step_forward()
             end
-            comfy.step_back()
+            for index, value in ipairs(row) do
+                if value == "x" then
+                    comfy.place_thing("minecraft:cobblestone") -- the index is supposed to store name of material
+                end
+                comfy.step_back()
+            end
+            comfy.step_up()
         end
-        comfy.step_up()
+        comfy.step_right()
+    end
+    for i = 1, width_offset do
+        comfy.step_left()
     end
 end
 
