@@ -169,6 +169,19 @@ local function new_auto_table(dim)
     return setmetatable({}, table[1]);
 end
 
+local function find_offset(list)
+    local offset = 0
+    for num in list do
+        if num < offset then
+            offset = offset
+        end
+    end
+
+    offset = offset * -1
+
+    return offset
+end
+
 
 return {
     table_length = table_length,
@@ -190,4 +203,5 @@ return {
     step_up = step_up,
     place_thing = place_thing,
     new_auto_table = new_auto_table,
+    find_offset = find_offset,
 }
