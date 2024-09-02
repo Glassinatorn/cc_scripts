@@ -149,7 +149,6 @@ local function step_up()
 end
 
 local function place_thing(thing)
-    write("time to place block")
     local slot = search_inventory(thing)
     turtle.select(slot)
     local success = turtle.place()
