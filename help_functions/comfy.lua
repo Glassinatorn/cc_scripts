@@ -88,10 +88,13 @@ local function lines_from(filename)
     return lines
 end
 
-local function split_strings(input_string)
+local function split_strings(input_string, seperator)
+    if seperator == nil then
+        seperator = "%s"
+    end
     local words = {}
-    for word in string.match(input_string, "%S+") do
-        table.insert(words, word)
+    for str in string.gmatch(input_string, "([^"..seperator.."]+)") do
+        table.insert(words, str)
     end
 
     return words

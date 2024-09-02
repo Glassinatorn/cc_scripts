@@ -78,6 +78,11 @@ end
 
 local function read_exported_model(filename)
     local array = comfy.lines_from(filename)
+    if array ~= nil then
+        for index, row in ipairs(array) do
+            array[index] = comfy.split_strings(row)
+        end
+    end
     
     return array
 end

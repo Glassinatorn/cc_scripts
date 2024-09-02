@@ -1,10 +1,9 @@
 local move = require("build.move")
 local build = require("build.build_stuff")
-local help_functions = require("help_functions.debugging")
+local debugging      = require("help_functions.debugging")
 
-local model = build.read_exported_model()
-print(model)
--- print("test")
+local model = build.read_exported_model("voxel_model.txt")
+print(debugging.dump_table(model))
 -- 
 -- function main()
 --     write("What do you want to do?")
