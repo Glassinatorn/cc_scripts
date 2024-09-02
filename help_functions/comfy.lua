@@ -156,7 +156,7 @@ local function place_thing(thing)
     return success
 end
 
-function new_auto_table(dim)
+local function new_auto_table(dim)
     local table = {};
     for i=1, dim do
         table[i] = {__index = function(t, k)
