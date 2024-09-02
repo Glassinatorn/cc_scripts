@@ -76,8 +76,8 @@ local function place_needed(curr_position, map, width, height)
     end
 end
 
-local function read_exported_model()
-    local array = comfy.lines_from("voxel_model.txt")
+local function read_exported_model(filename)
+    local array = comfy.lines_from(filename)
     
     return array
 end

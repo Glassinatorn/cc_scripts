@@ -1,8 +1,9 @@
 local move = require("build.move")
 local build = require("build.build_stuff")
-local loader = require("help_functions.obj_loader")
 local help_functions = require("help_functions.debugging")
 
+local model = build.read_exported_model()
+print(model)
 -- print("test")
 -- 
 -- function main()
