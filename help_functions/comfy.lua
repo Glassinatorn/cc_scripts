@@ -156,6 +156,20 @@ local function place_thing(thing)
     return success
 end
 
+function new_auto_table(dim)
+    local table = {};
+    for i=1, dim do
+        table[i] = {__index = function(t, k)
+            if i < dim then
+                t[k] = setmetatable({}, MT[i+1])
+                return t[k];
+            end
+        end}
+    end
+
+    return setmetatable({}, table[1]);
+end
+
 
 return {
     table_length = table_length,
@@ -176,4 +190,5 @@ return {
     step_down = step_down,
     step_up = step_up,
     place_thing = place_thing,
+    new_auto_table = new_auto_table,
 }

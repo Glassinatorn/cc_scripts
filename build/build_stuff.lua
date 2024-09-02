@@ -83,8 +83,19 @@ local function read_exported_model(filename)
             array[index] = comfy.split_strings(row)
         end
     end
-    
+    table.remove(array,1)
+    table.remove(array,1)
+    table.remove(array,1)
+
     return array
+end
+
+local function goxel_to_3d_table(goxel_table)
+    local converted = comfy.new_auto_table(3)
+
+    for index, row in ipairs(goxel_table) do
+        converted[row[1]][row[2]][row[3]] = row[4]
+    end
 end
 
 return {
@@ -94,4 +105,5 @@ return {
     build_from_array = build_from_array,
     place_needed = place_needed,
     read_exported_model = read_exported_model,
+    goxel_to_3d_table = goxel_to_3d_table,
 }
