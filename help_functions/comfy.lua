@@ -160,7 +160,7 @@ local function new_auto_table(dim)
     for i=1, dim do
         table[i] = {__index = function(t, k)
             if i < dim then
-                t[k] = setmetatable({}, MT[i+1])
+                t[k] = setmetatable({}, table[i+1])
                 return t[k];
             end
         end}

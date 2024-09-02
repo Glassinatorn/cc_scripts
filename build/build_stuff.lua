@@ -96,6 +96,8 @@ local function goxel_to_3d_table(goxel_table)
     for index, row in ipairs(goxel_table) do
         converted[row[1]][row[2]][row[3]] = row[4]
     end
+
+    return converted
 end
 
 return {
