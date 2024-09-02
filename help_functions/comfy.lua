@@ -171,9 +171,9 @@ end
 
 local function find_offset(list)
     local offset = 0
-    for num in list do
-        if num < offset then
-            offset = offset
+    for i = 1, #list do
+        if list[i] < offset then
+            offset = list[1]
         end
     end
 

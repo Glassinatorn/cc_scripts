@@ -93,8 +93,26 @@ end
 local function goxel_to_3d_table(goxel_table)
     local converted = comfy.new_auto_table(3)
 
+    local x_list = {}
+    local y_list = {}
+    local z_list = {}
+
     for index, row in ipairs(goxel_table) do
-        converted[row[1]][row[2]][row[3]] = row[4]
+        print(debugging.dump_table(row))
+        x_list[index] = tonumber(row[1])
+        y_list[index] = tonumber(row[2])
+        z_list[index] = tonumber(row[3])
+    end
+
+    local x_offset = comfy.find_offset(x_list)
+    local y_offset = comfy.find_offset(y_list)
+    local z_offset = comfy.find_offset(z_list)
+
+    for index, row in ipairs(goxel_table) do
+        local x = row[1] + x_offset
+        local y = row[2] + y_offset
+        local z = row[3] + z_offset
+        converted[x][y][z] = row[4]
     end
 
     return converted
