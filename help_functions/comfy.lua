@@ -171,9 +171,10 @@ end
 
 local function find_min_table(table)
     local min = math.huge
-    for i = 1, #table do
-        if table[i] < min then
-            min = table[1]
+
+    for key, value in pairs(table) do
+        if key < min then
+            min = key
         end
     end
 
@@ -182,13 +183,11 @@ end
 
 local function find_max_table(table)
     local max = -100000
-        for key, value in pairs(table) do
-            print(key)
-            if key > max then
-                max = key
-            end
+    for key, value in pairs(table) do
+        if key > max then
+            max = key
         end
-    --end
+    end
 
     return max
 end
