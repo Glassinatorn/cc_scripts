@@ -1,4 +1,3 @@
-local debugging = require "help_functions.debugging"
 -- These are just helper functions to make the code more compact and readable.
 local function table_length(table)
     local num = 0
@@ -174,8 +173,8 @@ local function find_min_table(table)
     local min = math.huge
 
     for key, value in pairs(table) do
-        if value < min then
-            min = value
+        if key < min then
+            min = key
         end
     end
 
@@ -193,7 +192,7 @@ local function find_max_table(table)
     return max
 end
 
-local function find_offset(table, index)
+local function find_offset(table)
     local offset = find_min_table(table)
     if offset < 0 then
         offset = offset * -1

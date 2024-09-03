@@ -14,6 +14,7 @@ local function build_from_array(thing_to_build)
     local width = comfy.find_max_table(thing_to_build)
     local height = 0
 
+    --print(thing_to_build)
     for i = 0, width do
         if thing_to_build[i] == nil then
             comfy.step_right()
@@ -93,8 +94,6 @@ local function read_exported_model(filename)
         table.remove(array,1)
         table.remove(array,1)
         table.remove(array,1)
-
-        print(debugging.dump_table(array[1][1]))
     end
 
 
@@ -114,9 +113,9 @@ local function goxel_to_3d_table(goxel_table)
         z_list[index] = tonumber(row[3])
     end
 
-    local x_offset = comfy.find_offset(x_list, "1")
-    local y_offset = comfy.find_offset(y_list, "2")
-    local z_offset = comfy.find_offset(z_list, "3")
+    local x_offset = comfy.find_offset(x_list)
+    local y_offset = comfy.find_offset(y_list)
+    local z_offset = comfy.find_offset(z_list)
 
     for index, row in ipairs(goxel_table) do
         local x = row[1] + x_offset
