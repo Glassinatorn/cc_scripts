@@ -185,8 +185,8 @@ end
 local function find_max_table(table)
     local max = -100000
     for key, value in pairs(table) do
-        if value > max then
-            max = value
+        if key > max then
+            max = key
         end
     end
 
