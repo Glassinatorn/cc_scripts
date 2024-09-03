@@ -5,8 +5,7 @@ local debugging      = require("help_functions.debugging")
 local model = build.read_exported_model("voxel_model.txt")
 print(debugging.dump_table(model))
 local converted_model = build.goxel_to_3d_table(model)
-print(converted_model)
--- 
+
 -- function main()
 --     write("What do you want to do?")
 --     write("1: build a bridge")

@@ -112,7 +112,7 @@ local function goxel_to_3d_table(goxel_table)
         local x = row[1] + x_offset
         local y = row[2] + y_offset
         local z = row[3] + z_offset
-        converted[x][y][z] = row[4]
+        converted[x][z][y] = row[4]
     end
 
     return converted
