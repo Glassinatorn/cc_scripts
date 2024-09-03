@@ -173,7 +173,7 @@ local function find_min_table(table)
     local min = math.huge
 
     for key, value in pairs(table) do
-        if key < min then
+        if value < min then
             min = key
         end
     end
@@ -184,7 +184,7 @@ end
 local function find_max_table(table)
     local max = -100000
     for key, value in pairs(table) do
-        if key > max then
+        if value > max then
             max = key
         end
     end
