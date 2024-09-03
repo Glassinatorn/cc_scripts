@@ -169,15 +169,33 @@ local function new_auto_table(dim)
     return setmetatable({}, table[1]);
 end
 
-local function find_offset(list)
-    local offset = 0
-    for i = 1, #list do
-        if list[i] < offset then
-            offset = list[1]
+local function find_min_table(table)
+    local min = math.huge
+    for i = 1, #table do
+        if table[i] < min then
+            min = table[1]
         end
     end
 
-    offset = offset * -1
+    return min
+end
+
+local function find_max_table(table)
+    local max = -100000
+    for i = 1, #table do
+        if table[i] > max then
+            max = table[1]
+        end
+    end
+
+    return max
+end
+
+local function find_offset(table)
+    local offset = find_min_table(table)
+    if offset < 0 then
+        offset = offset * -1
+    end
 
     return offset
 end
@@ -203,5 +221,7 @@ return {
     step_up = step_up,
     place_thing = place_thing,
     new_auto_table = new_auto_table,
+    find_min_table = find_min_table,
+    find_max_table = find_max_table,
     find_offset = find_offset,
 }
