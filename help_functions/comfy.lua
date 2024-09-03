@@ -182,11 +182,13 @@ end
 
 local function find_max_table(table)
     local max = -100000
-    for i = 1, #table do
-        if table[i] > max then
-            max = table[1]
+        for key, value in pairs(table) do
+            print(key)
+            if key > max then
+                max = key
+            end
         end
-    end
+    --end
 
     return max
 end

@@ -1,11 +1,34 @@
 local move = require("build.move")
 local build = require("build.build_stuff")
 local debugging      = require("help_functions.debugging")
+local comfy = require("help_functions.comfy")
 
 local model = build.read_exported_model("voxel_model.txt")
 print(debugging.dump_table(model))
 local converted_model = build.goxel_to_3d_table(model)
+print(debugging.dump_table(converted_model))
+print(comfy.find_max_table(converted_model[2][0]))
 
+
+-- {
+--     1 = {
+--         2 = {0 = ffffff, }, 
+--     }, 
+--     2 = {
+--         2 = {0 = ffffff, }, 
+--         0 = {4 = ffffff, }, 
+--     }, 
+--     0 = {
+--         1 = {0 = ffffff, }, 
+--         2 = {0 = ffffff, }, 
+--         3 = {0 = ffffff, }, 
+--         4 = {0 = ffffff, }, 
+--         0 = {
+--             0 = ffffff, 
+--             4 = ffffff, 
+--         }, 
+--     }, 
+-- }
 
 -- function main()
 --     write("What do you want to do?")
