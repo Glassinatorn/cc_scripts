@@ -14,7 +14,6 @@ local function build_from_array(thing_to_build)
     local width = comfy.find_max_table(thing_to_build)
     local height = 0
 
-    print(thing_to_build)
     for i = 0, width do
         if thing_to_build[i] == nil then
             comfy.step_right()
@@ -94,6 +93,8 @@ local function read_exported_model(filename)
         table.remove(array,1)
         table.remove(array,1)
         table.remove(array,1)
+
+        print(debugging.dump_table(array))
     end
 
 
