@@ -11,35 +11,46 @@ local function farm()
 end
 
 local function build_from_array(thing_to_build)
-    local width_offset = comfy.table_length(thing_to_build)
+    local width = comfy.find_max_table(thing_to_build)
     local height = 0
-    print(require("help_functions.debugging").dump_table(thing_to_build))
 
-    for width_step, height_table in ipairs(thing_to_build) do
-        print("width step: " ..width_step)
-        local reversed_table = comfy.reverse_table(height_table)
-        for height_index, row in ipairs(reversed_table) do
-            print("height index: " ..height_index)
-            local depth_offset = comfy.table_length(row)
-            for i = 1, depth_offset do
+    print(thing_to_build)
+    for i = 0, width do
+        if thing_to_build[i] == nil then
+            comfy.step_right()
+            i = i+1
+        end
+        for j = 1, comfy.find_max_table(thing_to_build[i]) do
+            if thing_to_build[i][j] == nil then
+                comfy.step_up()
+                j = j+1
+            end
+
+            local reversed_z_row = comfy.reverse_table(thing_to_build[i][j])
+            local z_offset = comfy.find_max_table(reversed_z_row)
+            for z = 0, z_offset do
                 comfy.step_forward()
             end
-            for index, value in ipairs(row) do
-                print("index step: " ..index)
-                comfy.place_thing(value) -- the index is supposed to store name of material
+            for k = 0, comfy.find_max_table(reversed_z_row) do
+                if reversed_z_row[k] == nil then
+                    comfy.step_back()
+                    k = k+1
+                end
+
+                comfy.place_thing(reversed_z_row[k]) -- the index is supposed to store name of material
                 comfy.step_back()
-            end
-            height = height + 1
+            end 
+            height = height+1
             comfy.step_up()
         end
-        
-        for i = 1, height do
+        for height_steps = 0, height do
             comfy.step_down()
         end
-        height = 0
+
         comfy.step_right()
     end
-    for i = 1, width_offset do
+    
+    for i = 0, width do
         comfy.step_left()
     end
 end
