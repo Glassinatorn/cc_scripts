@@ -98,7 +98,6 @@ local function goxel_to_3d_table(goxel_table)
     local z_list = {}
 
     for index, row in ipairs(goxel_table) do
-        print(debugging.dump_table(row))
         x_list[index] = tonumber(row[1])
         y_list[index] = tonumber(row[2])
         z_list[index] = tonumber(row[3])
