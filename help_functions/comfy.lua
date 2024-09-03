@@ -174,7 +174,7 @@ local function find_min_table(table)
 
     for key, value in pairs(table) do
         if value < min then
-            min = key
+            min = value
         end
     end
 
@@ -185,7 +185,7 @@ local function find_max_table(table)
     local max = -100000
     for key, value in pairs(table) do
         if value > max then
-            max = key
+            max = value
         end
     end
 
