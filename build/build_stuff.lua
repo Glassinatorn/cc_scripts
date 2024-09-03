@@ -27,9 +27,7 @@ local function build_from_array(thing_to_build)
                 comfy.step_forward()
             end
             for index, value in ipairs(row) do
-                if value == "x" then
-                    comfy.place_thing("minecraft:cobblestone") -- the index is supposed to store name of material
-                end
+                comfy.place_thing(value) -- the index is supposed to store name of material
                 comfy.step_back()
             end
             height = height + 1
@@ -82,10 +80,12 @@ local function read_exported_model(filename)
         for index, row in ipairs(array) do
             array[index] = comfy.split_strings(row)
         end
+
+        table.remove(array,1)
+        table.remove(array,1)
+        table.remove(array,1)
     end
-    table.remove(array,1)
-    table.remove(array,1)
-    table.remove(array,1)
+
 
     return array
 end
