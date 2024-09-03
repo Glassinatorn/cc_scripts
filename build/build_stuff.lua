@@ -94,7 +94,7 @@ local function read_exported_model(filename)
         table.remove(array,1)
         table.remove(array,1)
 
-        print(debugging.dump_table(array))
+        print(debugging.dump_table(array[1][1]))
     end
 
 
@@ -114,9 +114,9 @@ local function goxel_to_3d_table(goxel_table)
         z_list[index] = tonumber(row[3])
     end
 
-    local x_offset = comfy.find_offset(x_list)
-    local y_offset = comfy.find_offset(y_list)
-    local z_offset = comfy.find_offset(z_list)
+    local x_offset = comfy.find_offset(x_list, "1")
+    local y_offset = comfy.find_offset(y_list, "2")
+    local z_offset = comfy.find_offset(z_list, "3")
 
     for index, row in ipairs(goxel_table) do
         local x = row[1] + x_offset

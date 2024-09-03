@@ -182,18 +182,6 @@ local function find_min_table(table)
     return min
 end
 
-local function find_min_table_index(table, index)
-    local min = math.huge
-
-    for key, inner_table in pairs(table) do
-        if inner_table[index] < min then
-            min = inner_table[index]
-        end
-    end
-
-    return min
-end
-
 local function find_max_table(table)
     local max = -100000
     for key, value in pairs(table) do
@@ -206,7 +194,7 @@ local function find_max_table(table)
 end
 
 local function find_offset(table, index)
-    local offset = find_min_table_index(table, index)
+    local offset = find_min_table(table)
     if offset < 0 then
         offset = offset * -1
     end
@@ -236,7 +224,6 @@ return {
     place_thing = place_thing,
     new_auto_table = new_auto_table,
     find_min_table = find_min_table,
-    find_min_table_index = find_min_table_index,
     find_max_table = find_max_table,
     find_offset = find_offset,
 }
