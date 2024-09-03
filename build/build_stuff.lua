@@ -13,20 +13,19 @@ end
 local function build_from_array(thing_to_build)
     local width_offset = comfy.table_length(thing_to_build)
     local height = 0
-    -- for i = 2, width_offset do
-    --     comfy.step_right()
-    -- end
-
-    --print(require("help_functions.debugging").dump_table(thing_to_build))
+    print(require("help_functions.debugging").dump_table(thing_to_build))
 
     for width_step, height_table in ipairs(thing_to_build) do
+        print("width step: " ..width_step)
         local reversed_table = comfy.reverse_table(height_table)
         for height_index, row in ipairs(reversed_table) do
+            print("height index: " ..height_index)
             local depth_offset = comfy.table_length(row)
             for i = 1, depth_offset do
                 comfy.step_forward()
             end
             for index, value in ipairs(row) do
+                print("index step: " ..index)
                 comfy.place_thing(value) -- the index is supposed to store name of material
                 comfy.step_back()
             end
