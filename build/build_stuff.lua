@@ -118,6 +118,19 @@ local function goxel_to_3d_table(goxel_table)
     return converted
 end
 
+local function color_to_material(table)
+    for x, y_row in pairs(table) do
+        for y, z_row in pairs(y_row) do
+            for z, value in pairs(z_row) do
+                if value == "ffffff" then
+                    table[x][y][z] = "minecraft:cobblestone"
+                end
+            end
+        end
+    end
+    return table
+end
+
 return {
     farm = farm,
     build_stuff = build_stuff,
@@ -125,4 +138,5 @@ return {
     place_needed = place_needed,
     read_exported_model = read_exported_model,
     goxel_to_3d_table = goxel_to_3d_table,
+    color_to_material = color_to_material,
 }

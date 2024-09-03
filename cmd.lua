@@ -7,7 +7,8 @@ local model = build.read_exported_model("voxel_model.txt")
 print(debugging.dump_table(model))
 local converted_model = build.goxel_to_3d_table(model)
 print(debugging.dump_table(converted_model))
-print(comfy.find_max_table(converted_model[2][0]))
+local material_table = build.color_to_material(converted_model)
+print(debugging.dump_table(material_table))
 
 
 -- {
