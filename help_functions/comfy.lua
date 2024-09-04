@@ -202,9 +202,6 @@ local function find_max_table(table)
     return max
 end
 
-
-
-
 return {
     table_length = table_length,
     reverse_table = reverse_table,
