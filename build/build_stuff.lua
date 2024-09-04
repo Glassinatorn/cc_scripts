@@ -149,10 +149,13 @@ local function goxel_to_3d_table(goxel_table)
         z_list[index] = tonumber(row[3])
     end
 
-    local x_offset = comfy.find_offset(x_list)
-    local y_offset = comfy.find_offset(y_list)
-    local z_offset = comfy.find_offset(z_list)
+    local x_size = comfy.find_max_table(x_list)
+    local y_size = comfy.find_max_table(y_list)
+    local z_size = comfy.find_max_table(z_list)
 
+    for index, row in ipairs(goxel_table) do
+        
+    end
     for index, row in ipairs(goxel_table) do
         local x = row[1] + x_offset
         local y = row[2] + y_offset
