@@ -86,17 +86,29 @@ local function place_needed(curr_position, map, width, height)
     end
 end
 
-local function read_exported_model(filename)
+local function fetch_model_file(filename)
     local array = comfy.lines_from(filename)
+
+    if array == nil then
+        return nil
+    end
+
+    table.remove(array, 1)
+    table.remove(array, 1)
+    table.remove(array, 1)
+
+    return array
+end
+
+local function read_exported_model(filename)
+    local array = fetch_model_file(filename)
     if array == nil then
         return nil
     end
     for index, row in ipairs(array) do
         local tmp = comfy.split_strings(row)
 
-        if type(tmp[1]) == "number" then
-            array[index] = tmp
-        end
+        array[index] = tmp
     end
 
     -- find offsets
