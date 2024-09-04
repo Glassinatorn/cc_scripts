@@ -183,9 +183,10 @@ end
 
 local function find_max_table(table)
     local max = -100000
+    local offset = find_min_table(table)
     for key, value in pairs(table) do
-        if max > max then
-            max = value
+        if (value + offset) > max then
+            max = (value + offset)
         end
     end
 
