@@ -181,9 +181,18 @@ local function find_min_table(table)
     return min
 end
 
+local function find_offset(table)
+    local offset = find_min_table(table)
+    if offset < 0 then
+        offset = offset * -1
+    end
+
+    return offset
+end
+
 local function find_max_table(table)
     local max = -100000
-    local offset = find_min_table(table)
+    local offset = find_offset(table)
     for key, value in pairs(table) do
         if (value + offset) > max then
             max = (value + offset)
@@ -193,14 +202,7 @@ local function find_max_table(table)
     return max
 end
 
-local function find_offset(table)
-    local offset = find_min_table(table)
-    if offset < 0 then
-        offset = offset * -1
-    end
 
-    return offset
-end
 
 
 return {
