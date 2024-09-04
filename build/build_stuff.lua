@@ -122,9 +122,9 @@ local function read_exported_model(filename)
         tmp_z[index] = row[3]
     end
 
-    local x_offset = comfy.find_offset(array[1])
-    local y_offset = comfy.find_offset(array[2])
-    local z_offset = comfy.find_offset(array[3])
+    local x_offset = comfy.find_offset(tmp_x)
+    local y_offset = comfy.find_offset(tmp_y)
+    local z_offset = comfy.find_offset(tmp_z)
 
     -- increase values in array by offset
     for index, row in ipairs(array) do
