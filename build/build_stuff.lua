@@ -37,7 +37,9 @@ local function build_from_array(thing_to_build)
                     k = k+1
                 end
 
-                comfy.place_thing(reversed_z_row[k]) -- the index is supposed to store name of material
+                if reversed_z_row[k] ~= nil then
+                    comfy.place_thing(reversed_z_row[k]) -- the index is supposed to store name of material
+                end
                 comfy.step_back()
             end 
             height = height+1
