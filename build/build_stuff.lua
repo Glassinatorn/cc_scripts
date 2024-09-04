@@ -131,6 +131,7 @@ local function read_exported_model(filename)
         array[index][1] = row[1] + x_offset
         array[index][2] = row[2] + y_offset
         array[index][3] = row[3] + z_offset
+        array[index][4] = row[4]
     end
 
     return array
@@ -144,22 +145,26 @@ local function goxel_to_3d_table(goxel_table)
     local z_list = {}
 
     for index, row in ipairs(goxel_table) do
-        x_list[index] = tonumber(row[1])
-        y_list[index] = tonumber(row[2])
-        z_list[index] = tonumber(row[3])
+        x_list[index] = row[1]
+        y_list[index] = row[2]
+        z_list[index] = row[3]
     end
 
     local x_size = comfy.find_max_table(x_list)
     local y_size = comfy.find_max_table(y_list)
     local z_size = comfy.find_max_table(z_list)
 
-    for index, row in ipairs(goxel_table) do
-        
+    for i = 1, x_size do
+        for j = 1, y_size do
+            for k = 1, z_size do
+                converted[i][j][k] = "x"
+            end
+        end
     end
     for index, row in ipairs(goxel_table) do
-        local x = row[1] + x_offset
-        local y = row[2] + y_offset
-        local z = row[3] + z_offset
+        local x = row[1] 
+        local y = row[2] 
+        local z = row[3] 
         converted[x][z][y] = row[4]
     end
 
