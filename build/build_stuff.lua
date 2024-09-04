@@ -96,9 +96,9 @@ local function read_exported_model(filename)
     local tmp_z = {}
 
     for index, row in ipairs(array) do
-        tmp_x[index] = row[1]
-        tmp_y[index] = row[2]
-        tmp_z[index] = row[3]
+        tmp_x[index] = tonumber(row[1])
+        tmp_y[index] = tonumber(row[2])
+        tmp_z[index] = tonumber(row[3])
     end
 
     local x_offset = comfy.find_offset(tmp_x)
