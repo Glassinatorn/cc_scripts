@@ -21,7 +21,6 @@ function main()
     elseif msg == "2" then
         local model = build.read_exported_model("/cc_scripts/voxel_model.txt")
         local converted_model = build.goxel_to_3d_table(model)
-
         build.build_from_array(converted_model)
     end
 end

@@ -13,45 +13,24 @@ end
 local function build_from_array(thing_to_build)
     local width = comfy.find_max_table(thing_to_build)
     local height = 0
-
-    --print(thing_to_build)
-    for i = 0, width do
-        if thing_to_build[i] == nil then
-            comfy.step_right()
-            i = i+1
-        end
-        for j = 1, comfy.find_max_table(thing_to_build[i]) do
-            if thing_to_build[i][j] == nil then
-                comfy.step_up()
-                j = j+1
-            end
-
-            local reversed_z_row = comfy.reverse_table(thing_to_build[i][j])
-            local z_offset = comfy.find_max_table(reversed_z_row)
-            for z = 0, z_offset do
+    
+    for x = 1, #thing_to_build do
+        for y = 1, #thing_to_build[x] do
+            for i = 1, #thing_to_build[x][y] do
                 comfy.step_forward()
             end
-            for k = 0, comfy.find_max_table(reversed_z_row) do
-                if reversed_z_row[k] == nil then
-                    comfy.step_back()
-                    k = k+1
-                end
-
-                if reversed_z_row[k] ~= nil then
-                    comfy.place_thing(reversed_z_row[k]) -- the index is supposed to store name of material
-                end
+            for z = 1, #thing_to_build[x][y] do
+                comfy.place_thing(thing_to_build[x][y][z])
                 comfy.step_back()
-            end 
-            height = height+1
+            end
             comfy.step_up()
+            height = height+1
         end
-        for height_steps = 0, height do
+        for i = 1, height do
             comfy.step_down()
         end
-
         comfy.step_right()
     end
-    
     for i = 0, width do
         comfy.step_left()
     end
