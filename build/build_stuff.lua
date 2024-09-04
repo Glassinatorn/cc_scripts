@@ -161,11 +161,14 @@ local function goxel_to_3d_table(goxel_table)
             end
         end
     end
+
     for index, row in ipairs(goxel_table) do
-        local x = row[1] 
-        local y = row[2] 
-        local z = row[3] 
-        converted[x][z][y] = row[4]
+        local x = row[1]
+        local y = row[2]
+        local z = row[3]
+        local colour = row[4]
+
+        converted[x][y][z] = colour
     end
 
     return converted
