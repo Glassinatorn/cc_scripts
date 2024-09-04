@@ -88,13 +88,14 @@ end
 
 local function read_exported_model(filename)
     local array = comfy.lines_from(filename)
-    if array ~= nil then
-        for index, row in ipairs(array) do
-            local tmp = comfy.split_strings(row)
+    if array == nil then
+        return nil
+    end
+    for index, row in ipairs(array) do
+        local tmp = comfy.split_strings(row)
 
-            if type(tmp[1]) == "number" then
-                array[index] = comfy.split_strings(row)
-            end
+        if type(tmp[1]) == "number" then
+            array[index] = comfy.split_strings(row)
         end
     end
 
@@ -108,13 +109,15 @@ local function read_exported_model(filename)
         tmp_z[index] = row[3]
     end
 
-    local x_offset = comfy.find_min_table(array[1])
-    local y_offset = comfy.find_min_table(array[2])
-    local z_offset = comfy.find_min_table(array[3])
+    local x_offset = comfy.find_offset(array[1])
+    local y_offset = comfy.find_offset(array[2])
+    local z_offset = comfy.find_offset(array[3])
 
     -- increase values in array by offset
     for index, row in ipairs(array) do
-        array[index] = row
+        array[index][1] = row[1] + x_offset
+        array[index][2] = row[2] + y_offset
+        array[index][3] = row[3] + z_offset
     end
 
     return array
