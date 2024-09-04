@@ -137,6 +137,12 @@ local function read_exported_model(filename)
     return array
 end
 
+local function colour_to_material(value)
+    if value == "ffffff" then
+        return "minecraft:cobblestone"
+    end
+end
+
 local function goxel_to_3d_table(goxel_table)
     local converted = comfy.new_auto_table(3)
 
@@ -168,24 +174,12 @@ local function goxel_to_3d_table(goxel_table)
         local z = row[3]
         local colour = row[4]
 
-        converted[x][y][z] = colour
+        converted[x][y][z] = colour_to_material(colour)
     end
 
     return converted
 end
 
-local function color_to_material(table)
-    for x, y_row in pairs(table) do
-        for y, z_row in pairs(y_row) do
-            for z, value in pairs(z_row) do
-                if value == "ffffff" then
-                    table[x][y][z] = "minecraft:cobblestone"
-                end
-            end
-        end
-    end
-    return table
-end
 
 return {
     farm = farm,
@@ -194,5 +188,5 @@ return {
     place_needed = place_needed,
     read_exported_model = read_exported_model,
     goxel_to_3d_table = goxel_to_3d_table,
-    color_to_material = color_to_material,
+    colour_to_material = colour_to_material,
 }
