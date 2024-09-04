@@ -90,14 +90,18 @@ local function read_exported_model(filename)
     local array = comfy.lines_from(filename)
     if array ~= nil then
         for index, row in ipairs(array) do
-            array[index] = comfy.split_strings(row)
-        end
+            local tmp = comfy.split_strings(row)
 
-        table.remove(array,1)
-        table.remove(array,1)
-        table.remove(array,1)
+            if type(tmp[1]) == "number" then
+                array[index] = comfy.split_strings(row)
+            end
+        end
     end
 
+    -- find offsets
+    
+
+    -- increase values in array by offset
 
     return array
 end
