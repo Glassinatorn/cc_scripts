@@ -99,9 +99,23 @@ local function read_exported_model(filename)
     end
 
     -- find offsets
-    
+    local tmp_x = {}
+    local tmp_y = {}
+    local tmp_z = {}
+    for index, row in ipairs(array) do
+        tmp_x[index] = row[1]
+        tmp_y[index] = row[2]
+        tmp_z[index] = row[3]
+    end
+
+    local x_offset = comfy.find_min_table(array[1])
+    local y_offset = comfy.find_min_table(array[2])
+    local z_offset = comfy.find_min_table(array[3])
 
     -- increase values in array by offset
+    for index, row in ipairs(array) do
+        array[index] = row
+    end
 
     return array
 end
