@@ -173,6 +173,7 @@ local function find_min_table(table)
     local min = math.huge
 
     for key, value in pairs(table) do
+        print(value)
         if value < min then
             min = value
         end
