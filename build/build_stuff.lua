@@ -95,7 +95,7 @@ local function read_exported_model(filename)
         local tmp = comfy.split_strings(row)
 
         if type(tmp[1]) == "number" then
-            array[index] = comfy.split_strings(row)
+            array[index] = tmp
         end
     end
 
@@ -103,6 +103,7 @@ local function read_exported_model(filename)
     local tmp_x = {}
     local tmp_y = {}
     local tmp_z = {}
+
     for index, row in ipairs(array) do
         tmp_x[index] = row[1]
         tmp_y[index] = row[2]
